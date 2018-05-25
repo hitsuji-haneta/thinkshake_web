@@ -1,6 +1,6 @@
 <template lang="pug">
   section#top
-    img#logo(src="~/assets/logo.png" v-bind:class="{ img_active: isActive }")
+    img#logo(src="~/assets/logo.png" v-bind:class="{ img_active: isActive }" v-bind:style="{ marginTop: marginTop + 'px' }")
 </template>
 
 <script>
@@ -11,6 +11,15 @@ export default {
         return this.$window.scrollY === 0
       } else {
         return false
+      }
+    },
+    marginTop() {
+      if (process.browser) {
+        let base = 168
+        if ( this.$window.height < 500 ) base = 201
+        return this.$window.height/2 - base
+      } else {
+        return 0
       }
     }
   },
@@ -33,10 +42,7 @@ export default {
   img
     margin-bottom 300px
     @media screen and (max-width: 500px)
-      margin-top 150px
       width 60%
-    @media screen and (min-width: 500px)
-      margin-top 250px
   .img_active
     animation horizontal 2s linear 1
     transform-origin 50% 50%

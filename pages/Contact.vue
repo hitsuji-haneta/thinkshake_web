@@ -26,10 +26,6 @@ export default {
     text-align center
     flex-direction column
     align-items center
-    @media screen and (max-width: 500px)
-      margin-bottom 100px
-    @media screen and (min-width: 500px)
-      margin-bottom 200px
 
   p
     font-size 1.2rem

@@ -1,5 +1,5 @@
 <template lang="pug">
-  footer#footer
+  footer#footer(v-bind:style="{ marginTop: marginTop + 'px' }")
     p Copyright(c) {{ year }} thinkShake. All Rights Reserved.
 </template>
 
@@ -7,6 +7,17 @@
 export default {
   data() {
     return { year: new Date().getFullYear() }
+  },
+  computed: {
+    marginTop() {
+      if (process.browser) {
+        let base = 168
+        if ( this.$window.height < 500 ) base = 201
+        return this.$window.height/2 - base
+      } else {
+        return 0
+      }
+    }
   }
 }
 </script>
