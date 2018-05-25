@@ -21,7 +21,7 @@ export default {
   .tag
     background-color #465A6E
     display inline-block
-    font-size 0.5em
+    font-size 0.7rem
     border-radius 4px
     height 20px
     line-height 20px

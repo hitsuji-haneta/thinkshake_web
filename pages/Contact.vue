@@ -32,7 +32,7 @@ export default {
       margin-bottom 200px
 
   p
-    font-size 1.2em
+    font-size 1.2rem
     width 85%
     margin-top 40px
     margin-bottom 40px

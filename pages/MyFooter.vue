@@ -22,6 +22,6 @@ export default {
     margin-bottom 10px
 
   p
-    font-size 0.7em
+    font-size 0.7rem
     width 85%
 </style>
