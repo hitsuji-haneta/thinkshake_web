@@ -7,6 +7,16 @@
 export default {
   computed: {
     opening() { return this.$store.state.opening },
+  },
+  mounted: function() {
+    const store = this.$store
+    window.addEventListener("popstate", function(e) {
+      if (store.state.modal) {
+        e.preventDefault();
+        e.stopPropagation();
+        store.commit('closeModal')
+      }
+    }, false);
   }
 }
 </script>
