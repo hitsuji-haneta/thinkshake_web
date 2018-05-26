@@ -1,7 +1,7 @@
 <template lang="pug">
   section#contact
     h1 contact
-    p お問合せはこちらから。お気軽にどうぞ！
+    p お問合せはこちらから。<br/>お気軽にどうぞ！
     .form
       span(v-bind:style="h_duration")
         a(href="mailto:s.takahashi@thinkshake.net" class="button" v-bind:style="v_duration") mail
