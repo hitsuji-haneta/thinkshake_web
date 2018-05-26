@@ -1,7 +1,7 @@
 <template lang="pug">
   section#contact
     h1 contact
-    p お問合せはこちらから。お気軽にどうぞ！
+    p お問合せはこちらから。<br/>お気軽にどうぞ！
     .form
       span(v-bind:style="h_duration")
         a(href="mailto:s.takahashi@thinkshake.net" class="button" v-bind:style="v_duration") mail
@@ -26,13 +26,9 @@ export default {
     text-align center
     flex-direction column
     align-items center
-    @media screen and (max-width: 500px)
-      margin-bottom 100px
-    @media screen and (min-width: 500px)
-      margin-bottom 200px
 
   p
-    font-size 1.2em
+    font-size 1.2rem
     width 85%
     margin-top 40px
     margin-bottom 40px

@@ -1,6 +1,6 @@
 <template lang="pug">
   span(v-bind:style="h_duration")
-    a(href="#" v-scroll-to="{ el: path, offset: -80 }" class="button" v-bind:class="{ button_selected: isActive }" v-bind:style="v_duration") {{ text }}
+    a(href="#" v-scroll-to="{ el: path, offset: -(centerOfWindow) }" class="button" v-bind:class="{ button_selected: isActive }" v-bind:style="v_duration") {{ text }}
 </template>
 
 <script>
@@ -14,7 +14,7 @@ export default {
   },
   computed: {
     isActive() {
-      const base = 200
+      const base = this.centerOfWindow + 1
       if (process.browser) {
         let topPos = 0;
         let bottomPos = 0;
@@ -34,9 +34,16 @@ export default {
           default:
             break;
         }
-        return topPos < this.$window.scrollY && this.$window.scrollY < bottomPos
+        return topPos <= this.$window.scrollY && this.$window.scrollY < bottomPos
       }
     },
+    centerOfWindow() {
+      if (process.browser) {
+        return this.$window.height/2 - 100
+      } else {
+        return 0
+      }
+    }
   }
 }
 </script>

@@ -48,7 +48,7 @@ export default {
     margin 20px auto
     box-shadow 1px 2px 3px 1px rgba(0,0,0,0.2)
     border 1.5px solid #35495e
-    font-size 1.5em
+    font-size 1.5rem
     transition 0.7s
     display flex
     flex-direction row
@@ -116,7 +116,7 @@ export default {
     text-align center
     transition 0.8s
     @media screen and (max-width: 500px)
-      font-size 0.7em
+      font-size 1.1rem
   .main_text_open
     top 10%
 
@@ -127,9 +127,9 @@ export default {
     text-align center
     transition 0.8s
     @media screen and (max-width: 500px)
-      font-size 0.45em
+      font-size 0.75rem
     @media screen and (min-width: 500px)
-      font-size 0.7em
+      font-size 1rem
   .sub_text_open
     top 0%
 
@@ -140,9 +140,9 @@ export default {
     text-align left
     animation fadeIn 3.5s ease 0s 1 normal
     @media screen and (max-width: 500px)
-      font-size 0.45em
+      font-size 0.75rem
     @media screen and (min-width: 500px)
-      font-size 0.7em
+      font-size 1rem
 
   .tag_wrapper
     display flex
