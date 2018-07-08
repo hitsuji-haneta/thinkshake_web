@@ -1,6 +1,6 @@
 <template lang="pug">
-  span(v-bind:style="h_duration")
-    a(href="#" v-scroll-to="{ el: path, offset: -(centerOfWindow) }" class="button" v-bind:class="{ button_selected: isActive }" v-bind:style="v_duration") {{ text }}
+  span(v-bind:style="h_duration" class="button-movable_wrapper")
+    a(href="#" v-scroll-to="{ el: path, offset: -(centerOfWindow) }" class="button button-movable" v-bind:class="{ button_selected: isActive }" v-bind:style="v_duration") {{ text }}
 </template>
 
 <script>
@@ -15,21 +15,21 @@ export default {
   computed: {
     isActive() {
       const base = this.centerOfWindow + 1
-      if (process.browser) {
+      if (process.browser && this.$route.path === '/') {
         let topPos = 0;
         let bottomPos = 0;
         switch (this.path) {
           case '#about':
-              topPos = document.getElementById('about').getBoundingClientRect().top + this.$window.scrollY - base
-              bottomPos = document.getElementById('works').getBoundingClientRect().top + this.$window.scrollY - base
+            topPos = document.getElementById('about').getBoundingClientRect().top + this.$window.scrollY - base
+            bottomPos = document.getElementById('works').getBoundingClientRect().top + this.$window.scrollY - base
             break;
           case '#works':
-              topPos = document.getElementById('works').getBoundingClientRect().top + this.$window.scrollY - base
-              bottomPos = document.getElementById('contact').getBoundingClientRect().top + this.$window.scrollY - base
+            topPos = document.getElementById('works').getBoundingClientRect().top + this.$window.scrollY - base
+            bottomPos = document.getElementById('contact').getBoundingClientRect().top + this.$window.scrollY - base
             break;
           case '#contact':
-              topPos = document.getElementById('contact').getBoundingClientRect().top + this.$window.scrollY - base
-              bottomPos = 9999
+            topPos = document.getElementById('contact').getBoundingClientRect().top + this.$window.scrollY - base
+            bottomPos = 9999
             break;
           default:
             break;
@@ -47,29 +47,4 @@ export default {
   }
 }
 </script>
-
-<style lang= "stylus" scoped>
-  primary-color = #3fafbe
-
-  .button_selected
-    color #fff
-    border 1.5px solid primary-color
-    background-color primary-color
-
-  span
-    animation horizontal 1s ease-in-out infinite alternate
-  span:hover
-    animation-name none
-
-  a
-    animation vertical 1s ease-in-out infinite alternate
-
-  @keyframes horizontal
-    from { transform:translateX(-3px); }
-    to { transform:translateX(  0px); }
-
-  @keyframes vertical
-    from { transform:translateY(-10px); }
-    to { transform:translateY(  0px); }
-</style>
 

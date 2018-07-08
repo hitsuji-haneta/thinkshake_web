@@ -1,10 +1,10 @@
 <template lang="pug">
-  section#contact
-    h1 contact
-    p お問合せはこちらから。<br/>お気軽にどうぞ！
+  section#toBlog
+    h1 blog
+    p ブログはこちらから。
     .form
       span(v-bind:style="h_duration" class="button-movable_wrapper")
-        a(href="mailto:s.takahashi@thinkshake.net" class="button button-movable" v-bind:style="v_duration") mail
+        nuxt-link(:to="{ name: 'blog' }" v-bind:style="v_duration" class="button button-movable") blog
 </template>
 
 <script>
@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style lang= "stylus" scoped>
-  #contact
+  #toBlog
     width 100%
     display flex
     justify-content top

@@ -4,7 +4,7 @@
       .navibar
         navibar
       .main
-        .main__content
+        .main-content
           nuxt
 </template>
 
@@ -75,6 +75,11 @@ export default {
     @media screen and (min-width: 500px)
       padding-left 200px
 
+    &-content
+      position absolute
+      @media screen and (min-width: 500px)
+        width 75%
+
   .navibar
     z-index 1
     @media screen and (max-width: 500px)
@@ -88,11 +93,6 @@ export default {
       top 40%
       left 0
       width 25%
-
-  .main__content
-    position absolute
-    @media screen and (min-width: 500px)
-      width 75%
 
   .button
     display inline-block
@@ -113,12 +113,35 @@ export default {
       height 50px
       width 110px
       margin-bottom 30px
-  .button:hover
-    box-shadow 4px 8px 16px 4px rgba(0,0,0,0.2)
-    border 1.5px solid primary-color
-    animation-name none
-  .button:active
-    box-shadow 1px 1px 11px 1px rgba(0,0,0,0.2)
-    border 2.5px solid primary-color
-    animation-name none
+    &:hover
+      box-shadow 4px 8px 16px 4px rgba(0,0,0,0.2)
+      border 1.5px solid primary-color
+      animation-name none
+    &:active
+      box-shadow 1px 1px 11px 1px rgba(0,0,0,0.2)
+      border 2.5px solid primary-color
+      animation-name none
+    
+    &-movable
+      animation vertical 1s ease-in-out infinite alternate
+
+      &_wrapper
+        vertical-align middle
+        animation horizontal 1s ease-in-out infinite alternate
+        &:hover
+          animation-name none
+
+    &_selected
+      color #fff
+      border 1.5px solid primary-color
+      background-color primary-color
+
+  @keyframes horizontal
+    from { transform:translateX(-3px); }
+    to { transform:translateX(  0px); }
+
+  @keyframes vertical
+    from { transform:translateY(-10px); }
+    to { transform:translateY(  0px); }
+    
 </style>
