@@ -1,5 +1,5 @@
 <template lang="pug">
-  section#toBlog
+  section#blog
     h1 blog
     p ブログはこちらから。
     .form
@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style lang= "stylus" scoped>
-  #toBlog
+  #blog
     width 100%
     display flex
     justify-content top

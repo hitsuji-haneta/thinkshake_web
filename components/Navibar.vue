@@ -1,9 +1,10 @@
 <template lang="pug">
   nav
     .link
-      navi-button(text="about" path="#about")
-      navi-button(text="works" path="#works")
-      navi-button(text="contact" path="#contact")
+      navi-button(name="about")
+      navi-button(name="works")
+      navi-button(name="contact")
+      navi-button(name="blog")
 </template>
 
 <script>
