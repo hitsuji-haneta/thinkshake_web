@@ -51,23 +51,19 @@ export default {
     }
   },
   methods: {
-    actionClick: function(name) {
+    actionClick: function(buttonName) {
       if (process.browser) {
-        if (name === 'blog') {
+        if (buttonName === 'blog') {
           this.$router.push('/blog')
         } else if (this.isTopPage(this.$route.path)) {
-          VueScrollTo.scrollTo(`#${name}`, 700, { offset: -this.centerOfWindow() })
+          VueScrollTo.scrollTo(`#${buttonName}`, 700, { offset: -this.centerOfWindow() })
         } else {
-          this.$router.push(`/#${name}`)
+          this.$router.push(`/#${buttonName}`)
         }
       }
     },
     centerOfWindow: function() {
-      if (process.browser) {
-        return this.$window.height/2 - 100
-      } else {
-        return 0
-      }
+      return process.browser ? this.$window.height/2 - 100 : 0
     },
     isTopPage: function(path) {
       return path === '/' || path.slice(0, 2) === '/#'

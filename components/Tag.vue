@@ -11,7 +11,6 @@ export default {
     return {
       text: this.tag_key,
       image: `/${this.tag_key}.png`,
-      // image: '/logo.png'
     }
   }
 }
