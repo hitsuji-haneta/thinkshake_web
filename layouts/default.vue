@@ -6,16 +6,19 @@
       .main
         .main-content
           nuxt
+          myFooter
 </template>
 
 <script>
 import Navibar from '~/components/Navibar.vue'
+import MyFooter from '~/components/MyFooter.vue'
 import Modal from '~/components/Modal.vue'
 
 export default {
   components: {
     Navibar,
     Modal,
+    MyFooter
   },
   mounted: function() {
     this.$store.state.opening = false

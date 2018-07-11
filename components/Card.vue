@@ -1,5 +1,5 @@
 <template lang="pug">
-  .wrapper(v-bind:id="modal_key" @click="$store.commit('showModal', modal_key)" v-bind:style="duration" v-bind:class="{ wrapper_open: isActive }")
+  .wrapper(v-bind:id="modal_key" @click.stop.prevent="$store.commit('showModal', modal_key)" v-bind:style="duration" v-bind:class="{ wrapper_open: isActive }")
     img(:src="image" v-bind:class="{ img_open: isActive }")
     .content
       .text_wrapper(v-bind:class="{ text_wrapper_open: isActive }")

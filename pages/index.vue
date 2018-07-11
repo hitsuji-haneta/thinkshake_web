@@ -10,12 +10,11 @@
 
 <script>
 import { mapState } from 'vuex'
-import Top from '~/pages/Top.vue'
-import About from '~/pages/About.vue'
-import Works from '~/pages/Works.vue'
-import Blog from '~/pages/Blog.vue'
-import Contact from '~/pages/Contact.vue'
-import MyFooter from '~/pages/MyFooter.vue'
+import Top from '~/pages/top/Top.vue'
+import About from '~/pages/top/About.vue'
+import Works from '~/pages/top/Works.vue'
+import Blog from '~/pages/top/Blog.vue'
+import Contact from '~/pages/top/Contact.vue'
 
 export default {
     components: {
@@ -24,7 +23,6 @@ export default {
       Works,
       Blog,
       Contact,
-      MyFooter,
     }
 }
 </script>
