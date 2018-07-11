@@ -3,22 +3,30 @@
     h1 contact
     p お問合せはこちらから。<br/>お気軽にどうぞ！
     .form
-      span(v-bind:style="h_duration" class="button-movable_wrapper")
-        a(href="mailto:s.takahashi@thinkshake.net" class="button button-movable" v-bind:style="v_duration") mail
+      my-button(text="mail" v-bind:onClick="onClick" v-bind:isActive="isActive")
 </template>
 
 <script>
+import MyButton from '~/components/MyButton.vue'
+
 export default {
+  components: {
+    MyButton,
+  },
   data() {
     return {
-      h_duration: `animation-duration: ${Math.random()+1}s`,
-      v_duration: `animation-duration: ${Math.random()+1}s`,
+      isActive: false
+    }
+  },
+  methods: {
+    onClick: function() {
+      location.href = 'mailto:s.takahashi@thinkshake.net'
     }
   }
 }
 </script>
 
-<style lang= "stylus" scoped>
+<style lang="stylus" scoped>
   #contact
     width 100%
     display flex

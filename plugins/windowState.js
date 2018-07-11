@@ -22,7 +22,16 @@ const windowState = {
     }
     window.addEventListener('resize', onResize)
     onResize()
-    
+
+    // 指定した要素のY位置を取得
+    state.getElementPos = function(id, base) {
+      let [topPos, bottomPos] = [0, 0]
+      if (document.getElementById(id)) {
+        topPos = document.getElementById(id).getBoundingClientRect().top + state.scrollY - base
+        bottomPos = document.getElementById(id).getBoundingClientRect().bottom + state.scrollY - base
+      }
+      return [topPos, bottomPos]
+    }
     // 初期値を更新
     window.addEventListener('load', onScroll)
     // プロパティ $window を定義

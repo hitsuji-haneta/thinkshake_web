@@ -3,22 +3,30 @@
     h1 blog
     p ブログはこちらから。
     .form
-      span(v-bind:style="h_duration" class="button-movable_wrapper")
-        nuxt-link(:to="{ name: 'blog' }" v-bind:style="v_duration" class="button button-movable") blog
+      my-button(text="blog" v-bind:onClick="onClick" v-bind:isActive="isActive")
 </template>
 
 <script>
+import MyButton from '~/components/MyButton.vue'
+
 export default {
+  components: {
+    MyButton,
+  },
   data() {
     return {
-      h_duration: `animation-duration: ${Math.random()+1}s`,
-      v_duration: `animation-duration: ${Math.random()+1}s`,
+      isActive: false
+    }
+  },
+  methods: {
+    onClick: function() {
+      this.$router.push(`/blog`)
     }
   }
 }
 </script>
 
-<style lang= "stylus" scoped>
+<style lang="stylus" scoped>
   #blog
     width 100%
     display flex

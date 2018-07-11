@@ -4,15 +4,15 @@ import NaviButton from '~/components/NaviButton'
 
 describe('Navibar', () => {
   let wrapper
-  beforeEach(() => {
+  beforeAll(() => {
     wrapper = shallowMount(Navibar)
   })
 
-  test('is a Vue instance', () => {
+  it('is a Vue instance', () => {
     expect(wrapper.isVueInstance()).toBe(true)
   })
 
-  test('has NaviButtons', () => {
+  it('has NaviButtons', () => {
     const naviButtons = wrapper.findAll(NaviButton)
     expect(naviButtons.at(0).props().name).toEqual('about')
     expect(naviButtons.at(1).props().name).toEqual('works')
