@@ -30,7 +30,7 @@ export default {
 }
 </script>
 
-<style lang= "stylus">
+<style lang="stylus">
   primary-color = #3fafbe
   html {
     font-family: 'Rounded Mplus 1c', 'Source Code Pro', monospace, "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -96,4 +96,28 @@ export default {
       top 40%
       left 0
       width 25%
+
+  .slide-left-enter
+    transform translateX(2000px)
+    opacity 0
+    &-active
+      transition all .3s linear
+  .slide-left-leave
+    &-to
+      transform translateX(-2000px)
+      opacity 0
+    &-active
+      transition all .3s linear
+
+  .slide-right-enter
+    transform translateX(-2000px)
+    opacity 0
+    &-active
+      transition all .3s linear
+  .slide-right-leave
+    &-to
+      transform translateX(2000px)
+      opacity 0
+    &-active
+      transition all .3s linear
 </style>

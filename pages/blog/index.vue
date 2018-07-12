@@ -32,6 +32,7 @@ import ArticlePreview from '~/components/ArticlePreview.vue'
 const client = createClient()
 
 export default {
+  transition: 'slide-left',
   asyncData ({ env, params }) {
     return client.getEntries({
       'content_type': env.CTF_BLOG_POST_TYPE_ID,

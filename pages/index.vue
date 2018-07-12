@@ -5,7 +5,6 @@
     works
     contact
     blog
-    myFooter
 </template>
 
 <script>
@@ -17,12 +16,13 @@ import Blog from '~/pages/top/Blog.vue'
 import Contact from '~/pages/top/Contact.vue'
 
 export default {
-    components: {
-      Top,
-      About,
-      Works,
-      Blog,
-      Contact,
-    }
+  transition: 'slide-right',
+  components: {
+    Top,
+    About,
+    Works,
+    Blog,
+    Contact,
+  }
 }
 </script>
