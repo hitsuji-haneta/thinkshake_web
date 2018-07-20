@@ -10,11 +10,22 @@
               p(class="tag_text") {{ tag }}
       .copy
         vue-markdown {{post.fields.body}}
+      .relatedPosts
+        div
+          h2 関連記事
+        ul
+          li(class="item" v-for="post in tagPosts" v-bind:key="post.fields.title")
+            blog-card(:post="post")
+        div
+          nuxt-link(to="/") サイトTOP
+        div
+          nuxt-link(to="/blog") 記事一覧
 </template>
 
 <script>
 import VueMarkdown from 'vue-markdown'
 import {createClient} from '~/plugins/contentful.js'
+import BlogCard from '~/components/BlogCard.vue'
 
 const client = createClient()
 
@@ -23,16 +34,20 @@ export default {
   asyncData ({ env, params }) {
     return client.getEntries({
       'content_type': env.CTF_BLOG_POST_TYPE_ID,
-      'fields.slug': params.slug
+      'fields.tags[in]': params.tag,
+      order: '-sys.createdAt'
     }).then(entries => {
       return {
-        post: entries.items[0]
+        post: entries.items.filter((item) => item.fields.slug === params.slug)[0],
+        tagPosts: entries.items.filter((item) => item.fields.slug !== params.slug),
+        tag: params.tag
       }
     })
     .catch(console.error)
   },
   components: {
-    VueMarkdown
+    VueMarkdown,
+    BlogCard
   }
 }
 </script>
@@ -105,5 +120,19 @@ export default {
 }
 .copy li {
   margin: 0;
+}
+
+.relatedPosts > div {
+  text-align: center;
+}
+.relatedPosts > div > h2 {
+  display: inline-block;
+  border-bottom: 1.5px solid #3fafbe;
+  padding-bottom: 0.1em;
+}
+.relatedPosts ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 </style>
