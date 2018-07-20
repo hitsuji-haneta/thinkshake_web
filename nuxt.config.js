@@ -12,6 +12,7 @@ const cmaContentful = require('contentful-management')
 const cmaClient = cmaContentful.createClient({
   accessToken: ctfConfig.CTF_CMA_ACCESS_TOKEN
 })
+const {resolve} = require('path')
 
 const config = {
   /*
@@ -72,6 +73,9 @@ const config = {
     { src: '~plugins/ga.js', ssr: false }
   ],
 
+  modules: [
+    ['nuxt-stylus-resources-loader', resolve(__dirname, 'assets/stylus/**/*.styl')],
+  ],
   /*
   ** Get all blog posts from Contentful
   ** and generate the needed files upfront

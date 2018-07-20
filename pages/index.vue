@@ -1,5 +1,5 @@
 <template lang="pug">
-  .index_container
+  .top_container
     top
     about
     works

@@ -1,16 +1,18 @@
 <template lang="pug">
   .container
       modal(v-if="showModal || opening" @close="showModal = false")
-      .navibar
+      .navi
         navibar
       .main
         .main-content
+          blog-header(v-if="isNotTop")
           nuxt
           myFooter
 </template>
 
 <script>
 import Navibar from '~/components/Navibar.vue'
+import BlogHeader from '~/components/BlogHeader.vue'
 import MyFooter from '~/components/MyFooter.vue'
 import Modal from '~/components/Modal.vue'
 
@@ -18,6 +20,7 @@ export default {
   components: {
     Navibar,
     Modal,
+    BlogHeader,
     MyFooter
   },
   mounted: function() {
@@ -26,12 +29,13 @@ export default {
   computed: {
     opening() { return this.$store.state.opening },
     showModal() { return this.$store.state.modal },
+    isNotTop() { return !(this.$route.path === '/' || this.$route.path.slice(0, 2) === '/#') }
   }
 }
 </script>
 
 <style lang="stylus">
-  primary-color = #3fafbe
+// --- base ---
   html {
     font-family: 'Rounded Mplus 1c', 'Source Code Pro', monospace, "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-size: 16px;
@@ -41,7 +45,7 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     box-sizing: border-box;
-    color #35495e
+    color base-color
     background-color #fefefe
   }
 
@@ -50,6 +54,17 @@ export default {
     margin: 0;
   }
 
+  ul
+    list-style none
+    padding-left 0px
+  
+  img
+    width auto
+    height auto
+    max-width 100%
+    max-height 100%
+
+// --- layout ---
   .container
     position relative
     margin-left auto
@@ -83,11 +98,10 @@ export default {
       @media screen and (min-width: 500px)
         width 75%
 
-  .navibar
+  .navi
     z-index 1
     @media screen and (max-width: 500px)
       background-color white
-      display block
       position fixed
       height 70px
       width 100%
@@ -97,6 +111,7 @@ export default {
       left 0
       width 25%
 
+// --- animation ---
   .slide-left-enter
     transform translateX(2000px)
     opacity 0
@@ -120,4 +135,158 @@ export default {
       opacity 0
     &-active
       transition all .3s linear
+
+  @keyframes shake {
+    10% { transform:translateX(0px) }
+    13% { transform:translateX(-40px) }
+    16% { transform:translateX(0px) }
+    19% { transform:translateX(40px) }
+    22% { transform:translateX(0px) }
+    25% { transform:translateX(-40px) }
+    28% { transform:translateX(0px) }
+    31% { transform:translateX(40px) }
+    34% { transform:translateX(0px) }
+    100% { transform:translateX(0px) }
+  }
+
+// --- card ---
+  .card
+    background-color #ffffff
+    box-shadow 1px 2px 3px 1px rgba(0,0,0,0.2)
+    border 1.5px solid #35495e
+    font-size 1.5rem
+    transition 0.7s
+    display flex
+    animation vertical 2s ease-in-out infinite alternate
+
+    &-wide
+      margin 20px auto
+      flex-direction row
+      @media screen and (max-width: 500px)
+        width 95%
+        height 180px
+        padding 0 10px 0
+      @media screen and (min-width: 500px)
+        width 85%
+        height 200px
+        padding 0 30px 0
+
+    &-square
+      @media screen and (max-width: 500px)
+        width 300px
+        height 330px
+        padding 10px 20px 10px 20px
+        margin 20px 0 20px
+        flex-direction column
+      @media screen and (min-width: 500px)
+        width 330px
+        height 340px
+        padding 10px 20px 10px 20px
+        margin 20px 20px 20px 20px
+        flex-direction column
+      & > img
+        max-height 200px
+
+    &:hover
+      box-shadow 4px 8px 16px 4px rgba(0,0,0,0.2)
+      border 1.5px solid primary-color
+      animation-name none
+
+    &_open
+      z-index 9999
+      background-color #ffffff
+      flex-direction column
+      @media screen and (max-width: 500px)
+        height 500px
+      @media screen and (min-width: 500px)
+        height 700px
+        width 90%
+
+    &_image
+      transition 0.8s
+      @media screen and (max-width: 500px)
+        height 100px
+        margin 30px 0px 30px 0px
+      @media screen and (min-width: 500px)
+        height 170px
+        margin 15px 0px 15px 0px
+      &-open
+        margin 20px auto
+        @media screen and (max-width: 500px)
+          height 150px
+        @media screen and (min-width: 500px)
+          height 250px
+
+    &_content
+      padding 5px 10px 5px
+      height 100%
+      width 100%
+      max-width 100%
+      &-open
+        width 100%
+
+    &_texts
+      display table
+      margin 0 auto
+      width 100%
+      @media screen and (max-width: 500px)
+        height 75%
+      @media screen and (min-width: 500px)
+        height 80%
+      &-open
+        @media screen and (max-width: 500px)
+          height 70%
+          width 280px
+        @media screen and (min-width: 500px)
+          height 70%
+          width 500px
+
+    &_tags
+      display flex
+      flex-direction row
+      justify-content flex-end
+      align-items flex-end
+      width 100%
+      transition 0.8s
+      &-open
+        margin-top 20px
+        justify-content center
+
+// --- tag ---
+  .tag
+    background-color tag-color
+    display inline-block
+    font-size 0.7rem
+    border-radius 4px
+    height 20px
+    line-height 20px
+    width 70px
+    text-align center
+    margin-right 5px
+    margin-bottom 5px
+    &_image
+      display inline-block
+      margin-right 5px
+      height 17px
+      vertical-align middle
+    &_text
+      color white
+      display inline-block
+      vertical-align middle
+
+
+// -- page --
+  .blog_container
+    width 100%
+    padding 0 5px 0 5px
+    & > ul
+      display flex
+      flex-direction row
+      flex-wrap wrap
+      @media screen and (max-width: 950px)
+        justify-content center
+      @media screen and (min-width: 950px)
+        width 750px
+        margin 0 auto
+        justify-content start
 </style>

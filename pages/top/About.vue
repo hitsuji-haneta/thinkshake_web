@@ -2,14 +2,14 @@
   section#about
     h1 about
     p ようこそ!<br/>thinkShake製作所はエンジニア高橋翔太の個人企業です。
-    card(text_main="profile", modal_key="profile")
+    work-card(text_main="profile", modal_key="profile")
 </template>
 
 <script>
-import Card from '~/components/Card.vue'
+import WorkCard from '~/components/WorkCard.vue'
 export default {
   components: {
-    Card,
+    WorkCard,
   }
 }
 </script>

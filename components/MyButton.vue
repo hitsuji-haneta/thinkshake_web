@@ -28,10 +28,10 @@ export default {
     transition 0.2s
     box-shadow 1px 2px 3px 1px rgba(0,0,0,0.2)
     @media screen and (max-width: 500px)
-      margin-right 15px
+      margin 0 5px 0 5px
       line-height 40px
       height 40px
-      width 90px
+      width 70px
     @media screen and (min-width: 500px)
       line-height 50px
       height 50px
