@@ -1,0 +1,258 @@
+// -- variable --
+base-color = #35495e
+primary-color = #3fafbe
+tag-color = #465A6E
+BG-color = #FEFEFE
+
+// --- base ---
+html
+  font-family 'Rounded Mplus 1c', 'Source Code Pro', monospace, "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
+  font-size 16px
+  word-spacing 1px
+  -ms-text-size-adjust 100%
+  -webkit-text-size-adjust 100%
+  -moz-osx-font-smoothing grayscale
+  -webkit-font-smoothing antialiased
+  box-sizing border-box
+  color base-color
+  background-color BG-color
+
+*, *:before, *:after
+  box-sizing border-box
+  margin 0
+
+ul
+  list-style none
+  padding-left 0px
+
+img
+  width auto
+  height auto
+  max-width 100%
+  max-height 100%
+
+// --- layout ---
+.container
+  position relative
+  margin-left auto
+  margin-right auto
+  @media screen and (max-width: 500px)
+    width 100%
+  @media screen and (min-width: 500px)
+    max-width 1080px
+
+.first_view
+  transition 1s
+  top 0
+  left 0
+  width 100%
+  height 100%
+  position fixed
+  z-index 9999
+  display table
+  background-color primary-color
+
+.main
+  width 100%
+  overflow hidden
+  @media screen and (max-width: 500px)
+    padding-top 70px
+  @media screen and (min-width: 500px)
+    padding-left 200px
+
+  &-content
+    position absolute
+    @media screen and (min-width: 500px)
+      width 75%
+
+.navi
+  z-index 1
+  @media screen and (max-width: 500px)
+    background-color white
+    position fixed
+    height 70px
+    width 100%
+  @media screen and (min-width: 500px)
+    position fixed
+    top 40%
+    left 0
+    width 25%
+
+// --- animation ---
+.slide-left-enter
+  transform translateX(2000px)
+  opacity 0
+  &-active
+    transition all .3s linear
+.slide-left-leave
+  &-to
+    transform translateX(-2000px)
+    opacity 0
+  &-active
+    transition all .3s linear
+
+.slide-right-enter
+  transform translateX(-2000px)
+  opacity 0
+  &-active
+    transition all .3s linear
+.slide-right-leave
+  &-to
+    transform translateX(2000px)
+    opacity 0
+  &-active
+    transition all .3s linear
+
+@keyframes shake {
+  10% { transform:translateX(0px) }
+  13% { transform:translateX(-40px) }
+  16% { transform:translateX(0px) }
+  19% { transform:translateX(40px) }
+  22% { transform:translateX(0px) }
+  25% { transform:translateX(-40px) }
+  28% { transform:translateX(0px) }
+  31% { transform:translateX(40px) }
+  34% { transform:translateX(0px) }
+  100% { transform:translateX(0px) }
+}
+
+// --- card ---
+.card
+  background-color BG-color
+  box-shadow 1px 2px 3px 1px rgba(0,0,0,0.2)
+  border 1.5px solid base-color
+  font-size 1.5rem
+  transition 0.7s
+  display flex
+  animation vertical 2s ease-in-out infinite alternate
+
+  &-wide
+    margin 20px auto
+    flex-direction row
+    @media screen and (max-width: 500px)
+      width 95%
+      height 180px
+      padding 0 10px 0
+    @media screen and (min-width: 500px)
+      width 85%
+      height 200px
+      padding 0 30px 0
+
+  &-square
+    @media screen and (max-width: 500px)
+      width 300px
+      height 330px
+      padding 10px 20px 10px 20px
+      margin 20px 0 20px
+      flex-direction column
+    @media screen and (min-width: 500px)
+      width 330px
+      height 340px
+      padding 10px 20px 10px 20px
+      margin 20px 20px 20px 20px
+      flex-direction column
+    & > img
+      max-height 200px
+
+  &:hover
+    box-shadow 4px 8px 16px 4px rgba(0,0,0,0.2)
+    border 1.5px solid primary-color
+    animation-name none
+
+  &_open
+    z-index 9999
+    background-color BG-color
+    flex-direction column
+    @media screen and (max-width: 500px)
+      height 500px
+    @media screen and (min-width: 500px)
+      height 700px
+      width 90%
+
+  &_image
+    transition 0.8s
+    @media screen and (max-width: 500px)
+      height 100px
+      margin 30px 0px 30px 0px
+    @media screen and (min-width: 500px)
+      height 170px
+      margin 15px 0px 15px 0px
+    &-open
+      margin 20px auto
+      @media screen and (max-width: 500px)
+        height 150px
+      @media screen and (min-width: 500px)
+        height 250px
+
+  &_content
+    padding 5px 10px 5px
+    height 100%
+    width 100%
+    max-width 100%
+    &-open
+      width 100%
+
+  &_texts
+    display table
+    margin 0 auto
+    width 100%
+    @media screen and (max-width: 500px)
+      height 75%
+    @media screen and (min-width: 500px)
+      height 80%
+    &-open
+      @media screen and (max-width: 500px)
+        height 70%
+        width 280px
+      @media screen and (min-width: 500px)
+        height 70%
+        width 500px
+
+  &_tags
+    display flex
+    flex-direction row
+    justify-content flex-end
+    align-items flex-end
+    width 100%
+    transition 0.8s
+    &-open
+      margin-top 20px
+      justify-content center
+
+// --- tag ---
+.tag
+  background-color tag-color
+  display inline-block
+  font-size 0.7rem
+  border-radius 4px
+  height 20px
+  line-height 20px
+  width 70px
+  text-align center
+  margin-right 5px
+  margin-bottom 5px
+  &_image
+    display inline-block
+    margin-right 5px
+    height 17px
+    vertical-align middle
+  &_text
+    color white
+    display inline-block
+    vertical-align middle
+
+
+// -- page --
+.blog_container
+  width 100%
+  padding 0 5px 0 5px
+  & > ul
+    display flex
+    flex-direction row
+    flex-wrap wrap
+    @media screen and (max-width: 950px)
+      justify-content center
+    @media screen and (min-width: 950px)
+      width 750px
+      margin 0 auto
+      justify-content start

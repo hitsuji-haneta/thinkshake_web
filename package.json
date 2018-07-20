@@ -10,21 +10,47 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint"
+    "precommit": "npm run lint",
+    "test": "jest"
   },
   "dependencies": {
+    "contentful": "^6.1.1",
+    "contentful-management": "^5.1.4",
+    "dotenv": "^6.0.0",
     "nuxt": "^1.0.0",
+    "nuxt-stylus-resources-loader": "^1.1.3",
+    "path": "^0.12.7",
+    "vue-markdown": "^2.2.4",
     "vue-scrollto": "^2.11.0"
   },
   "devDependencies": {
+    "@vue/test-utils": "^1.0.0-beta.20",
     "babel-eslint": "^8.2.1",
+    "babel-jest": "^23.2.0",
     "eslint": "^4.15.0",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.7.1",
     "eslint-plugin-vue": "^4.0.0",
+    "jest": "^23.3.0",
     "pug": "2.0.0-beta6",
     "pug-loader": "^2.4.0",
     "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.2"
+    "stylus-loader": "^3.0.2",
+    "vue-jest": "^2.6.0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/$1",
+      "^~/(.*)$": "<rootDir>/$1"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
+    }
   }
 }

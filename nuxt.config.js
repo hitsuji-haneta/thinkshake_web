@@ -1,4 +1,20 @@
-module.exports = {
+const {getConfigForKeys} = require('./lib/config.js')
+const ctfConfig = getConfigForKeys([
+  'CTF_BLOG_POST_TYPE_ID',
+  'CTF_SPACE_ID',
+  'CTF_CDA_ACCESS_TOKEN',
+  'CTF_CMA_ACCESS_TOKEN',
+  'CTF_PERSON_ID'
+])
+const {createClient} = require('./plugins/contentful')
+const cdaClient = createClient(ctfConfig)
+const cmaContentful = require('contentful-management')
+const cmaClient = cmaContentful.createClient({
+  accessToken: ctfConfig.CTF_CMA_ACCESS_TOKEN
+})
+const {resolve} = require('path')
+
+const config = {
   /*
   ** Headers of the page
   */
@@ -49,9 +65,57 @@ module.exports = {
     },
     vendor: ['vue-scrollto']
   },
+
   plugins: [
+    { src: '~plugins/contentful' },
     { src: '~plugins/vue-scrollto' },
     { src: '~plugins/windowState', ssr: false },
     { src: '~plugins/ga.js', ssr: false }
-  ]
+  ],
+
+  modules: [
+    ['nuxt-stylus-resources-loader', resolve(__dirname, 'assets/stylus/**/*.styl')],
+  ],
+  /*
+  ** Get all blog posts from Contentful
+  ** and generate the needed files upfront
+  **
+  ** Included:
+  ** - blog posts
+  ** - available blog post tags
+  */
+  generate: {
+    routes () {
+      return Promise.all([
+        // get all blog posts
+        cdaClient.getEntries({
+          'content_type': ctfConfig.CTF_BLOG_POST_TYPE_ID
+        }),
+        // get the blog post content type
+        cmaClient.getSpace(ctfConfig.CTF_SPACE_ID)
+          .then(space => space.getContentType(ctfConfig.CTF_BLOG_POST_TYPE_ID))
+      ])
+      .then(([entries, postType]) => {
+        return [
+          // map entries to URLs
+          ...entries.items.map(entry => `/blog/${entry.fields.slug}`),
+          // map all possible tags to URLs
+          ...postType.fields.find(field => field.id === 'tags').items.validations[0].in.map(tag => `/tags/${tag}`)
+        ]
+      })
+    }
+  },
+
+    /*
+  ** Define environment variables being available
+  ** in generate and browser context
+  */
+  env: {
+    CTF_SPACE_ID: ctfConfig.CTF_SPACE_ID,
+    CTF_CDA_ACCESS_TOKEN: ctfConfig.CTF_CDA_ACCESS_TOKEN,
+    CTF_PERSON_ID: ctfConfig.CTF_PERSON_ID,
+    CTF_BLOG_POST_TYPE_ID: ctfConfig.CTF_BLOG_POST_TYPE_ID
+  }
 }
+
+module.exports = config
