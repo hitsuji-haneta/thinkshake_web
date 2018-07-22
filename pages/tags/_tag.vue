@@ -1,11 +1,11 @@
 <template lang="pug">
   .blog_container
-    .wrapper
+    .blogList
       h2 「{{ tag }}」の記事
     ul
       li(class="item" v-for="post in posts" v-bind:key="post.fields.title")
         blog-card(:post="post")
-    .toTop
+    .link-under
       nuxt-link(to="/") サイトTOP
 </template>
 
@@ -21,7 +21,7 @@ export default {
     return client.getEntries({
       'content_type': env.CTF_BLOG_POST_TYPE_ID,
       'fields.tags[in]': params.tag,
-      order: '-sys.createdAt'
+      order: '-fields.publishDate',
     }).then(entries => {
       return {
         posts: entries.items,
@@ -34,16 +34,3 @@ export default {
   }
 }
 </script>
-
-<style lang="stylus" scoped>
-  .wrapper
-    text-align center
-    margin-bottom 10px
-    & > h2
-      display inline-block
-      border-bottom 1.5px solid primary-color
-      padding-bottom 0.1em
-
-  .toTop
-    text-align center
-</style>
