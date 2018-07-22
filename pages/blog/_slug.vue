@@ -16,6 +16,12 @@
         ul
           li(class="item" v-for="post in related" v-bind:key="post.fields.title")
             blog-card(:post="post")
+        .tagList
+          h2 タグ一覧
+          .tagList_wrapper
+            div(v-for="tag in tagList" v-bind:key="tag.fields.name" class="tag")
+              nuxt-link(v-bind:to="{ name: 'tags-tag', params: { tag: tag.fields.name }}")
+                p(class="tag_text") {{ tag.fields.name }}
         .link-under
           nuxt-link(to="/") サイトTOP
           br
@@ -62,7 +68,17 @@ export default {
     })
     .catch(console.error)
 
-    return Object.assign(main, related)
+    const tagList = await client.getEntries({
+      'content_type': env.CTF_TAG_LIST_TYPE_ID,
+      order: '-sys.createdAt'
+    }).then(entries => {
+      return {
+        tagList: entries.items
+      }
+    })
+    .catch(console.error)
+
+    return Object.assign(main, related, tagList)
   },
   components: {
     VueMarkdown,
