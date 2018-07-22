@@ -2,7 +2,7 @@
   div
     section(class="slug_container")
       .headline
-        time(class="date") {{ ( new Date(post.fields.publishDate)).toDateString() }}
+        time(class="date") {{ ( new Date(post.fields.publishDate)).toLocaleDateString() }}
         h1 {{ post.fields.title }}
         .card_tags
           div(v-for="tag in post.fields.tags" v-bind:key="tag" class="tag")

@@ -71,7 +71,8 @@ const config = {
     { src: '~plugins/contentful' },
     { src: '~plugins/vue-scrollto' },
     { src: '~plugins/windowState', ssr: false },
-    { src: '~plugins/ga.js', ssr: false }
+    { src: '~plugins/ga.js', ssr: false },
+    { src: '~plugins/truncate.js', ssr: false }
   ],
 
   modules: [

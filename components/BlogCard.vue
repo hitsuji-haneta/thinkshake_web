@@ -6,8 +6,8 @@
           v-bind:srcset="`${post.fields.heroImage.fields.file.url}?w=350&h=196&fit=fill 350w, ${post.fields.heroImage.fields.file.url}?w=1000&h=562&fit=fill 1000w, ${post.fields.heroImage.fields.file.url}?w=2000&h=1125&fit=fill 2000w`")
       .card_content
         nuxt-link(:to="{ name: 'blog-slug', params: { slug: post.fields.slug, tags: post.fields.tags }}" class="card_texts linkWrapper")
-          time(class="date") {{ ( new Date(post.fields.publishDate)).toDateString() }}
-          h4 {{ post.fields.title }}
+          time(class="date") {{ ( new Date(post.fields.publishDate)).toLocaleDateString() }}
+          h4 {{ post.fields.title | truncate(30) }}
         .card_tags
           div(v-for="tag in post.fields.tags" v-bind:key="tag" class="tag")
             nuxt-link(v-bind:to="{ name: 'tags-tag', params: { tag: tag }}")
