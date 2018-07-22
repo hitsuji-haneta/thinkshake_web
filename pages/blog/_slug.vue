@@ -2,7 +2,7 @@
   div
     section(class="slug_container")
       .headline
-        time(class="date") {{ ( new Date(post.fields.publishDate)).toDateString() }}
+        time(class="date") {{ ( new Date(post.fields.publishDate)).toLocaleDateString() }}
         h1 {{ post.fields.title }}
         .card_tags
           div(v-for="tag in post.fields.tags" v-bind:key="tag" class="tag")
@@ -10,15 +10,21 @@
               p(class="tag_text") {{ tag }}
       .copy
         vue-markdown {{post.fields.body}}
-      .relatedPosts
-        div
+      .blog_container
+        .blogList
           h2 関連記事
         ul
-          li(class="item" v-for="post in tagPosts" v-bind:key="post.fields.title")
+          li(class="item" v-for="post in related" v-bind:key="post.fields.title")
             blog-card(:post="post")
-        div
+        .tagList
+          h2 タグ一覧
+          .tagList_wrapper
+            div(v-for="tag in tagList" v-bind:key="tag.fields.name" class="tag")
+              nuxt-link(v-bind:to="{ name: 'tags-tag', params: { tag: tag.fields.name }}")
+                p(class="tag_text") {{ tag.fields.name }}
+        .link-under
           nuxt-link(to="/") サイトTOP
-        div
+          br
           nuxt-link(to="/blog") 記事一覧
 </template>
 
@@ -31,19 +37,48 @@ const client = createClient()
 
 export default {
   transition: 'slide-left',
-  asyncData ({ env, params }) {
-    return client.getEntries({
+  async asyncData ({ env, params }) {
+    const main = await client.getEntries({
       'content_type': env.CTF_BLOG_POST_TYPE_ID,
-      'fields.tags[in]': params.tag,
+      'fields.slug': params.slug,
       order: '-sys.createdAt'
     }).then(entries => {
       return {
-        post: entries.items.filter((item) => item.fields.slug === params.slug)[0],
-        tagPosts: entries.items.filter((item) => item.fields.slug !== params.slug),
-        tag: params.tag
+        post: entries.items[0],
       }
     })
     .catch(console.error)
+
+    let tagQuery = ''
+    if (main.post.fields.tags) {
+      tagQuery = main.post.fields.tags.reduce((previous, current) => {
+          return `${previous},${current}`
+      })
+    }
+
+    const related = await client.getEntries({
+      'content_type': env.CTF_BLOG_POST_TYPE_ID,
+      'fields.tags[in]': tagQuery,
+      order: '-fields.publishDate',
+      limit: 5
+    }).then(entries => {
+      return {
+        related: entries.items.filter((item) => item.fields.slug !== params.slug),
+      }
+    })
+    .catch(console.error)
+
+    const tagList = await client.getEntries({
+      'content_type': env.CTF_TAG_LIST_TYPE_ID,
+      order: '-sys.createdAt'
+    }).then(entries => {
+      return {
+        tagList: entries.items
+      }
+    })
+    .catch(console.error)
+
+    return Object.assign(main, related, tagList)
   },
   components: {
     VueMarkdown,
@@ -120,19 +155,5 @@ export default {
 }
 .copy li {
   margin: 0;
-}
-
-.relatedPosts > div {
-  text-align: center;
-}
-.relatedPosts > div > h2 {
-  display: inline-block;
-  border-bottom: 1.5px solid #3fafbe;
-  padding-bottom: 0.1em;
-}
-.relatedPosts ul {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
 }
 </style>

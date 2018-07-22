@@ -1,6 +1,7 @@
 const {getConfigForKeys} = require('./lib/config.js')
 const ctfConfig = getConfigForKeys([
   'CTF_BLOG_POST_TYPE_ID',
+  'CTF_TAG_LIST_TYPE_ID',
   'CTF_SPACE_ID',
   'CTF_CDA_ACCESS_TOKEN',
   'CTF_CMA_ACCESS_TOKEN',
@@ -70,7 +71,8 @@ const config = {
     { src: '~plugins/contentful' },
     { src: '~plugins/vue-scrollto' },
     { src: '~plugins/windowState', ssr: false },
-    { src: '~plugins/ga.js', ssr: false }
+    { src: '~plugins/ga.js', ssr: false },
+    { src: '~plugins/truncate.js', ssr: false }
   ],
 
   modules: [
@@ -114,7 +116,8 @@ const config = {
     CTF_SPACE_ID: ctfConfig.CTF_SPACE_ID,
     CTF_CDA_ACCESS_TOKEN: ctfConfig.CTF_CDA_ACCESS_TOKEN,
     CTF_PERSON_ID: ctfConfig.CTF_PERSON_ID,
-    CTF_BLOG_POST_TYPE_ID: ctfConfig.CTF_BLOG_POST_TYPE_ID
+    CTF_BLOG_POST_TYPE_ID: ctfConfig.CTF_BLOG_POST_TYPE_ID,
+    CTF_TAG_LIST_TYPE_ID: ctfConfig.CTF_TAG_LIST_TYPE_ID
   }
 }
 

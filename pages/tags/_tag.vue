@@ -1,11 +1,17 @@
 <template lang="pug">
   .blog_container
-    .wrapper
+    .blogList
       h2 「{{ tag }}」の記事
     ul
       li(class="item" v-for="post in posts" v-bind:key="post.fields.title")
         blog-card(:post="post")
-    .toTop
+    .tagList
+      h2 タグ一覧
+      .tagList_wrapper
+        div(v-for="tag in tagList" v-bind:key="tag.fields.name" class="tag")
+          nuxt-link(v-bind:to="{ name: 'tags-tag', params: { tag: tag.fields.name }}")
+            p(class="tag_text") {{ tag.fields.name }}
+    .link-under
       nuxt-link(to="/") サイトTOP
 </template>
 
@@ -17,33 +23,33 @@ const client = createClient()
 
 export default {
   transition: 'slide-left',
-  asyncData ({ env, params }) {
-    return client.getEntries({
+  async asyncData ({ env, params }) {
+    const posts = await client.getEntries({
       'content_type': env.CTF_BLOG_POST_TYPE_ID,
       'fields.tags[in]': params.tag,
-      order: '-sys.createdAt'
+      order: '-fields.publishDate',
     }).then(entries => {
       return {
         posts: entries.items,
         tag: params.tag
       }
     })
+    .catch(console.error)
+
+    const tagList = await client.getEntries({
+      'content_type': env.CTF_TAG_LIST_TYPE_ID,
+      order: '-sys.createdAt'
+    }).then(entries => {
+      return {
+        tagList: entries.items
+      }
+    })
+    .catch(console.error)
+
+    return Object.assign(posts, tagList)
   },
   components: {
     BlogCard
   }
 }
 </script>
-
-<style lang="stylus" scoped>
-  .wrapper
-    text-align center
-    margin-bottom 10px
-    & > h2
-      display inline-block
-      border-bottom 1.5px solid primary-color
-      padding-bottom 0.1em
-
-  .toTop
-    text-align center
-</style>
