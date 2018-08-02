@@ -1,31 +1,30 @@
 <template lang="pug">
-  div
-    section(class="slug_container")
-      .headline
-        time(class="date") {{ ( new Date(post.fields.publishDate)).toLocaleDateString() }}
-        h1 {{ post.fields.title }}
-        .card_tags
-          div(v-for="tag in post.fields.tags" v-bind:key="tag" class="tag")
-            nuxt-link(v-bind:to="{ name: 'tags-tag', params: { tag: tag }}")
-              p(class="tag_text") {{ tag }}
-      .copy
-        vue-markdown {{post.fields.body}}
-      .blog_container
-        .blogList
-          h2 関連記事
-        ul
-          li(class="item" v-for="post in related" v-bind:key="post.fields.title")
-            blog-card(:post="post")
-        .tagList
-          h2 タグ一覧
-          .tagList_wrapper
-            div(v-for="tag in tagList" v-bind:key="tag.fields.name" class="tag")
-              nuxt-link(v-bind:to="{ name: 'tags-tag', params: { tag: tag.fields.name }}")
-                p(class="tag_text") {{ tag.fields.name }}
-        .link-under
-          nuxt-link(to="/") サイトTOP
-          br
-          nuxt-link(to="/blog") 記事一覧
+  section(class="slug_container")
+    .headline
+      time(class="date") {{ ( new Date(post.fields.publishDate)).toLocaleDateString() }}
+      h1 {{ post.fields.title }}
+      .card_tags
+        div(v-for="tag in post.fields.tags" v-bind:key="tag" class="tag")
+          nuxt-link(v-bind:to="{ name: 'tags-tag', params: { tag: tag }}")
+            p(class="tag_text") {{ tag }}
+    .copy
+      vue-markdown {{post.fields.body}}
+    .blog_container
+      .blogList
+        h2 関連記事
+      ul
+        li(class="item" v-for="post in related" v-bind:key="post.fields.title")
+          blog-card(:post="post")
+      .tagList
+        h2 タグ一覧
+        .tagList_wrapper
+          div(v-for="tag in tagList" v-bind:key="tag.fields.name" class="tag")
+            nuxt-link(v-bind:to="{ name: 'tags-tag', params: { tag: tag.fields.name }}")
+              p(class="tag_text") {{ tag.fields.name }}
+      .link-under
+        nuxt-link(to="/") サイトTOP
+        br
+        nuxt-link(to="/blog") 記事一覧
 </template>
 
 <script>
