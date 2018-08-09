@@ -1,9 +1,10 @@
 <template lang="pug">
   article
     .card.card-square(v-bind:style="duration")
-      nuxt-link(:to="{ name: 'blog-slug', params: { slug: post.fields.slug }}")
-        img(v-bind:src="post.fields.heroImage.fields.file.url + '?fit=scale&w=350&h=196'"
-          v-bind:srcset="`${post.fields.heroImage.fields.file.url}?w=350&h=196&fit=fill 350w, ${post.fields.heroImage.fields.file.url}?w=1000&h=562&fit=fill 1000w, ${post.fields.heroImage.fields.file.url}?w=2000&h=1125&fit=fill 2000w`")
+      nuxt-link(class="blogCard_imageWrapper" v-bind:to="{ name: 'blog-slug', params: { slug: post.fields.slug }}")
+        img(class="blogCard_image"
+          v-bind:src="post.fields.heroImage.fields.file.url"
+          v-bind:srcset="`${post.fields.heroImage.fields.file.url}, ${post.fields.heroImage.fields.file.url}, ${post.fields.heroImage.fields.file.url}`")
       .card_content
         nuxt-link(:to="{ name: 'blog-slug', params: { slug: post.fields.slug, tags: post.fields.tags }}" class="card_texts linkWrapper")
           time(class="date") {{ ( new Date(post.fields.publishDate)).toLocaleDateString() }}
@@ -31,6 +32,21 @@ export default {
     height 120px
     color base-color
     text-decoration none
+
+  .blogCard_imageWrapper
+    position relative
+    width 100%
+    height 150px
+    display table-cell
+    vertical-align middle
+    text-align center
+
+  .blogCard_image
+    width auto
+    height auto
+    max-width 100%
+    max-height 100%
+    vertical-align middle
 
   .date
     font-size 1.0rem

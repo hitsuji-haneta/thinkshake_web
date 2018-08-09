@@ -3,6 +3,9 @@
     .headline
       time(class="date") {{ ( new Date(post.fields.publishDate)).toLocaleDateString() }}
       h1 {{ post.fields.title }}
+      .slug_imageWrapper
+        img(v-bind:src="post.fields.heroImage.fields.file.url"
+          v-bind:srcset="`${post.fields.heroImage.fields.file.url}, ${post.fields.heroImage.fields.file.url}, ${post.fields.heroImage.fields.file.url}`")
       .card_tags
         div(v-for="tag in post.fields.tags" v-bind:key="tag" class="tag")
           nuxt-link(v-bind:to="{ name: 'tags-tag', params: { tag: tag }}")
@@ -96,7 +99,10 @@ export default {
     font-size: 15px;
   }
 }
-
+.slug_imageWrapper {
+  width: 100%;
+  text-align: center;
+}
 .headline {
   padding: 3em 0 0;
 }
@@ -154,5 +160,8 @@ export default {
 }
 .copy li {
   margin: 0;
+}
+.copy img {
+  margin: 0 auto;
 }
 </style>
