@@ -15,9 +15,9 @@
     
     .pager
       div(class="pager_wrapper pager_wrapper-left")
-        nuxt-link(class="pager_text" v-if="post.fields.previousPost" v-bind:to="{ name: 'blog-slug', params: { slug: post.fields.previousPost.fields.slug }}") {{ post.fields.previousPost.fields.title }}
+        nuxt-link(class="pager_text" v-if="previousPost" v-bind:to="{ name: 'blog-slug', params: { slug: previousPost.fields.slug }}") {{ previousPost.fields.title }}
       div(class="pager_wrapper pager_wrapper-right")
-        nuxt-link(class="pager_text" v-if="post.fields.nextPost" v-bind:to="{ name: 'blog-slug', params: { slug: post.fields.nextPost.fields.slug }}") {{ post.fields.nextPost.fields.title }}
+        nuxt-link(class="pager_text" v-if="nextPost" v-bind:to="{ name: 'blog-slug', params: { slug: nextPost.fields.slug }}") {{ nextPost.fields.title }}
 
     .blog_container
       .blogList
@@ -50,10 +50,32 @@ export default {
     const main = await client.getEntries({
       'content_type': env.CTF_BLOG_POST_TYPE_ID,
       'fields.slug': params.slug,
-      order: '-sys.createdAt'
+      order: '-fields.publishDate'
     }).then(entries => {
       return {
         post: entries.items[0],
+      }
+    })
+    .catch(console.error)
+
+    const previousPost = await client.getEntries({
+      'content_type': env.CTF_BLOG_POST_TYPE_ID,
+      'fields.nextPost': params.slug,
+      order: '-fields.publishDate'
+    }).then(entries => {
+      return {
+        previousPost: entries.items[0],
+      }
+    })
+    .catch(console.error)
+
+    const nextPost = await client.getEntries({
+      'content_type': env.CTF_BLOG_POST_TYPE_ID,
+      'fields.previousPost': params.slug,
+      order: '-fields.publishDate'
+    }).then(entries => {
+      return {
+        nextPost: entries.items[0],
       }
     })
     .catch(console.error)
@@ -87,7 +109,7 @@ export default {
     })
     .catch(console.error)
 
-    return Object.assign(main, related, tagList)
+    return Object.assign(main, previousPost, nextPost, related, tagList)
   },
   components: {
     VueMarkdown,
@@ -109,46 +131,47 @@ export default {
 .slug_imageWrapper {
   width: 100%;
   text-align: center;
+  margin: 1rem auto;
 }
 .headline {
-  padding: 3em 0 0;
+  padding: 3rem 0 0;
 }
 .headline h1 {
-  font-size: 2.3em;
+  font-size: 2.3rem;
 }
 
 .copy {
-  padding-bottom: 3em;
+  padding-bottom: 3rem;
 }
 .copy *:not(div) {
-  margin: 2em 0 1em;
+  margin: 2rem 0 1rem;
 }
 .copy h1 {
-  font-size: 1.4em;
+  font-size: 1.4rem;
   border-bottom: 1.5px solid #3fafbe;
-  padding-bottom: 0.1em;
+  padding-bottom: 0.1rem;
   border-left: 7px solid #3fafbe;
-  padding-left: 0.7em;
+  padding-left: 0.7rem;
   font-weight: normal;
 }
 .copy h2 {
-  font-size: 1.2em;
+  font-size: 1.2rem;
   border-left: 5px solid #3fafbe;
   border-radius: 4px;
-  padding-left: 0.7em;
+  padding-left: 0.7rem;
   font-weight: normal;
 }
 .copy h3 {
-  font-size: 1em;
+  font-size: 1rem;
 }
 .copy p {
-  font-size: 1em;
-  line-height: 1.5em;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 .copy pre {
   width: 100%;
   background-color: #235561;
-  padding: 1em 2em 1em 2em;
+  padding: 1rem 2rem 1rem 2rem;
   overflow-x: auto;
 }
 .copy code {
@@ -158,24 +181,24 @@ export default {
 .copy p code {
   color: black;
   background-color: #dde6e7;
-  padding: 0.1em 0.4em 0.1em;
-  margin: 0.1em 0.2em 0.1em;
+  padding: 0.1rem 0.4rem 0.1rem;
+  margin: 0.1rem 0.2rem 0.1rem;
 }
 .copy ul {
-  margin-left: 3em;
+  margin-left: 3rem;
   list-style: disc;
 }
 .copy li {
   margin: 0;
 }
 .copy img {
-  margin: 0 auto;
+  margin: 0.5rem auto;
 }
 
 .pager {
   width: 100%;
   justify-content: space-between;
-  margin-bottom: 5em;
+  margin-bottom: 5rem;
   position: relative;
 }
 .pager::before {
@@ -196,21 +219,22 @@ export default {
 }
 .pager_wrapper {
   display: table-cell;
-  border-top: 0.5px solid #3a4749;
-  border-bottom: 0.5px solid #3a4749;
+  border-top: 0.5px solid #35495e;
+  border-bottom: 0.5px solid #35495e;
   width: 50%;
   height: 100%;
   vertical-align: middle;
 }
 .pager_wrapper-left {
-  border-right: 0.5px dotted #3a4749;
+  border-right: 0.5px dotted #35495e;
   padding: 1rem 1rem 1rem 2.5rem;
 }
 .pager_wrapper-right {
-  border-left: 0.5px dotted #3a4749;
+  border-left: 0.5px dotted #35495e;
   padding: 1rem 2.5rem 1rem 1rem;
 }
 .pager_text {
   text-decoration: none;
+  color: #35495e
 }
 </style>
