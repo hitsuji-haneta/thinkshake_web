@@ -219,21 +219,22 @@ export default {
 }
 .pager_wrapper {
   display: table-cell;
-  border-top: 0.5px solid #3a4749;
-  border-bottom: 0.5px solid #3a4749;
+  border-top: 0.5px solid #35495e;
+  border-bottom: 0.5px solid #35495e;
   width: 50%;
   height: 100%;
   vertical-align: middle;
 }
 .pager_wrapper-left {
-  border-right: 0.5px dotted #3a4749;
+  border-right: 0.5px dotted #35495e;
   padding: 1rem 1rem 1rem 2.5rem;
 }
 .pager_wrapper-right {
-  border-left: 0.5px dotted #3a4749;
+  border-left: 0.5px dotted #35495e;
   padding: 1rem 2.5rem 1rem 1rem;
 }
 .pager_text {
   text-decoration: none;
+  color: #35495e
 }
 </style>
