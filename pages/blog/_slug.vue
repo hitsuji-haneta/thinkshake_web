@@ -15,9 +15,9 @@
     
     .pager
       div(class="pager_wrapper pager_wrapper-left")
-        nuxt-link(class="pager_text" v-if="post.fields.previousPost" v-bind:to="{ name: 'blog-slug', params: { slug: post.fields.previousPost.fields.slug }}") {{ post.fields.previousPost.fields.title }}
+        nuxt-link(class="pager_text" v-if="previousPost" v-bind:to="{ name: 'blog-slug', params: { slug: previousPost.fields.slug }}") {{ previousPost.fields.title }}
       div(class="pager_wrapper pager_wrapper-right")
-        nuxt-link(class="pager_text" v-if="post.fields.nextPost" v-bind:to="{ name: 'blog-slug', params: { slug: post.fields.nextPost.fields.slug }}") {{ post.fields.nextPost.fields.title }}
+        nuxt-link(class="pager_text" v-if="nextPost" v-bind:to="{ name: 'blog-slug', params: { slug: nextPost.fields.slug }}") {{ nextPost.fields.title }}
 
     .blog_container
       .blogList
@@ -50,10 +50,32 @@ export default {
     const main = await client.getEntries({
       'content_type': env.CTF_BLOG_POST_TYPE_ID,
       'fields.slug': params.slug,
-      order: '-sys.createdAt'
+      order: '-fields.publishDate'
     }).then(entries => {
       return {
         post: entries.items[0],
+      }
+    })
+    .catch(console.error)
+
+    const previousPost = await client.getEntries({
+      'content_type': env.CTF_BLOG_POST_TYPE_ID,
+      'fields.nextPost': params.slug,
+      order: '-fields.publishDate'
+    }).then(entries => {
+      return {
+        previousPost: entries.items[0],
+      }
+    })
+    .catch(console.error)
+
+    const nextPost = await client.getEntries({
+      'content_type': env.CTF_BLOG_POST_TYPE_ID,
+      'fields.previousPost': params.slug,
+      order: '-fields.publishDate'
+    }).then(entries => {
+      return {
+        nextPost: entries.items[0],
       }
     })
     .catch(console.error)
@@ -87,7 +109,7 @@ export default {
     })
     .catch(console.error)
 
-    return Object.assign(main, related, tagList)
+    return Object.assign(main, previousPost, nextPost, related, tagList)
   },
   components: {
     VueMarkdown,

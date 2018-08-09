@@ -4,9 +4,14 @@ const ctfConfig = getConfigForKeys([
   'CTF_TAG_LIST_TYPE_ID',
   'CTF_SPACE_ID',
   'CTF_CDA_ACCESS_TOKEN',
+  'CTF_CMA_ACCESS_TOKEN',
 ])
 const {createClient} = require('./plugins/contentful')
 const cdaClient = createClient(ctfConfig)
+const cmaContentful = require('contentful-management')
+const cmaClient = cmaContentful.createClient({
+  accessToken: ctfConfig.CTF_CMA_ACCESS_TOKEN
+})
 const {resolve} = require('path')
 
 const config = {
@@ -86,7 +91,10 @@ const config = {
         // get all blog posts
         cdaClient.getEntries({
           'content_type': ctfConfig.CTF_BLOG_POST_TYPE_ID
-        })
+        }),
+        // get the blog post content type
+        cmaClient.getSpace(ctfConfig.CTF_SPACE_ID)
+          .then(space => space.getContentType(ctfConfig.CTF_BLOG_POST_TYPE_ID))
       ])
       .then(([entries, postType]) => {
         return [
