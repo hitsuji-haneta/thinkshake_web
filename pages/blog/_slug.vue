@@ -24,7 +24,7 @@
       .link-under
         nuxt-link(to="/") サイトTOP
         br
-        nuxt-link(to="/blog") 記事一覧
+        nuxt-link(to="/blog") 全ての記事
 </template>
 
 <script>
