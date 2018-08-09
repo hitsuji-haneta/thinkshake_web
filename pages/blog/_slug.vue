@@ -12,6 +12,13 @@
             p(class="tag_text") {{ tag }}
     .copy
       vue-markdown {{post.fields.body}}
+    
+    .pager
+      div(class="pager_wrapper pager_wrapper-left")
+        nuxt-link(class="pager_text" v-if="post.fields.previousPost" v-bind:to="{ name: 'blog-slug', params: { slug: post.fields.previousPost.fields.slug }}") {{ post.fields.previousPost.fields.slug }}
+      div(class="pager_wrapper pager_wrapper-right")
+        nuxt-link(class="pager_text" v-if="post.fields.nextPost" v-bind:to="{ name: 'blog-slug', params: { slug: post.fields.nextPost.fields.slug }}") {{ post.fields.nextPost.fields.slug }}
+
     .blog_container
       .blogList
         h2 関連記事
@@ -111,7 +118,7 @@ export default {
 }
 
 .copy {
-  padding-bottom: 7em;
+  padding-bottom: 3em;
 }
 .copy *:not(div) {
   margin: 2em 0 1em;
@@ -163,5 +170,47 @@ export default {
 }
 .copy img {
   margin: 0 auto;
+}
+
+.pager {
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 5em;
+  position: relative;
+}
+.pager::before {
+  position: absolute;
+  content: "≪";
+  font-size: 2rem;
+  left: 0px;
+  top: 50%;
+  margin-top: -1.5rem;
+}
+.pager::after {
+  position: absolute;
+  content: "≫";
+  font-size: 2rem;
+  right: 0px;
+  top: 50%;
+  margin-top: -1.5rem;
+}
+.pager_wrapper {
+  display: table-cell;
+  border-top: 0.5px solid #3a4749;
+  border-bottom: 0.5px solid #3a4749;
+  width: 50%;
+  height: 100%;
+  vertical-align: middle;
+}
+.pager_wrapper-left {
+  border-right: 0.5px dotted #3a4749;
+  padding: 1rem 1rem 1rem 2.5rem;
+}
+.pager_wrapper-right {
+  border-left: 0.5px dotted #3a4749;
+  padding: 1rem 2.5rem 1rem 1rem;
+}
+.pager_text {
+  text-decoration: none;
 }
 </style>
