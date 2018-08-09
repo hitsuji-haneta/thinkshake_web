@@ -15,9 +15,9 @@
     
     .pager
       div(class="pager_wrapper pager_wrapper-left")
-        nuxt-link(class="pager_text" v-if="post.fields.previousPost" v-bind:to="{ name: 'blog-slug', params: { slug: post.fields.previousPost.fields.slug }}") {{ post.fields.previousPost.fields.slug }}
+        nuxt-link(class="pager_text" v-if="post.fields.previousPost" v-bind:to="{ name: 'blog-slug', params: { slug: post.fields.previousPost.fields.slug }}") {{ post.fields.previousPost.fields.title }}
       div(class="pager_wrapper pager_wrapper-right")
-        nuxt-link(class="pager_text" v-if="post.fields.nextPost" v-bind:to="{ name: 'blog-slug', params: { slug: post.fields.nextPost.fields.slug }}") {{ post.fields.nextPost.fields.slug }}
+        nuxt-link(class="pager_text" v-if="post.fields.nextPost" v-bind:to="{ name: 'blog-slug', params: { slug: post.fields.nextPost.fields.slug }}") {{ post.fields.nextPost.fields.title }}
 
     .blog_container
       .blogList
