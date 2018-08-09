@@ -109,46 +109,47 @@ export default {
 .slug_imageWrapper {
   width: 100%;
   text-align: center;
+  margin: 1rem auto;
 }
 .headline {
-  padding: 3em 0 0;
+  padding: 3rem 0 0;
 }
 .headline h1 {
-  font-size: 2.3em;
+  font-size: 2.3rem;
 }
 
 .copy {
-  padding-bottom: 3em;
+  padding-bottom: 3rem;
 }
 .copy *:not(div) {
-  margin: 2em 0 1em;
+  margin: 2rem 0 1rem;
 }
 .copy h1 {
-  font-size: 1.4em;
+  font-size: 1.4rem;
   border-bottom: 1.5px solid #3fafbe;
-  padding-bottom: 0.1em;
+  padding-bottom: 0.1rem;
   border-left: 7px solid #3fafbe;
-  padding-left: 0.7em;
+  padding-left: 0.7rem;
   font-weight: normal;
 }
 .copy h2 {
-  font-size: 1.2em;
+  font-size: 1.2rem;
   border-left: 5px solid #3fafbe;
   border-radius: 4px;
-  padding-left: 0.7em;
+  padding-left: 0.7rem;
   font-weight: normal;
 }
 .copy h3 {
-  font-size: 1em;
+  font-size: 1rem;
 }
 .copy p {
-  font-size: 1em;
-  line-height: 1.5em;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 .copy pre {
   width: 100%;
   background-color: #235561;
-  padding: 1em 2em 1em 2em;
+  padding: 1rem 2rem 1rem 2rem;
   overflow-x: auto;
 }
 .copy code {
@@ -158,24 +159,24 @@ export default {
 .copy p code {
   color: black;
   background-color: #dde6e7;
-  padding: 0.1em 0.4em 0.1em;
-  margin: 0.1em 0.2em 0.1em;
+  padding: 0.1rem 0.4rem 0.1rem;
+  margin: 0.1rem 0.2rem 0.1rem;
 }
 .copy ul {
-  margin-left: 3em;
+  margin-left: 3rem;
   list-style: disc;
 }
 .copy li {
   margin: 0;
 }
 .copy img {
-  margin: 0 auto;
+  margin: 0.5rem auto;
 }
 
 .pager {
   width: 100%;
   justify-content: space-between;
-  margin-bottom: 5em;
+  margin-bottom: 5rem;
   position: relative;
 }
 .pager::before {

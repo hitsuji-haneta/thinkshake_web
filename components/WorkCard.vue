@@ -7,7 +7,7 @@
           p(class="sub_text" v-bind:class="{ sub_text_open: isActive }") {{ subText }}
           p(class="main_text" v-bind:class="{ main_text_open: isActive }") {{ mainText }}
           p(class="content_text" v-if="isActive" v-html="contentText")
-      .card_tags(v-bind:class="{ 'card_tags-open': isActive }")
+      .card_tags(v-if="tags.length !== 0" v-bind:class="{ 'card_tags-open': isActive }")
         work-tag(v-for="tag in tags" v-bind:tag_key="tag" key="tag")
 </template>
 
@@ -49,22 +49,16 @@ export default {
     vertical-align middle
 
   .main_text
-    // position absolute
-    // top 50%
     width 100%
     transition 0.8s
-    @media screen and (max-width: 500px)
-      font-size 1.1rem
+    font-size 1.1rem
     &_open
       margin-top 5px
 
   .sub_text
     width 100%
     transition 0.8s
-    @media screen and (max-width: 500px)
-      font-size 0.75rem
-    @media screen and (min-width: 500px)
-      font-size 1rem
+    font-size 0.9rem
     &_open
       margin-top 10px
 
@@ -73,10 +67,7 @@ export default {
     text-align left
     animation fadeIn 3.5s ease 0s 1 normal
     margin-top 10px
-    @media screen and (max-width: 500px)
-      font-size 0.75rem
-    @media screen and (min-width: 500px)
-      font-size 1rem
+    font-size 0.9rem
 
   @keyframes vertical
     from { transform:translateY(-10px); }
