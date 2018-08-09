@@ -8,7 +8,7 @@
       .card_content
         nuxt-link(:to="{ name: 'blog-slug', params: { slug: post.fields.slug, tags: post.fields.tags }}" class="card_texts linkWrapper")
           time(class="date") {{ ( new Date(post.fields.publishDate)).toLocaleDateString() }}
-          h4(class="title") {{ post.fields.title | truncate(30) }}
+          h4(class="title") {{ post.fields.title | truncate(70) }}
         .card_tags
           div(v-for="tag in post.fields.tags" v-bind:key="tag" class="tag")
             nuxt-link(v-bind:to="{ name: 'tags-tag', params: { tag: tag }}")
@@ -32,6 +32,7 @@ export default {
     height 120px
     color base-color
     text-decoration none
+    margin-bottom 10px
 
   .blogCard_imageWrapper
     position relative
