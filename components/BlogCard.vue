@@ -35,7 +35,7 @@ export default {
 
   .blogCard_imageWrapper
     position relative
-    width 300px
+    width 100%
     height 150px
     display table-cell
     vertical-align middle
