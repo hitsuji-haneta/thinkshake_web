@@ -8,7 +8,7 @@
           p(class="main_text" v-bind:class="{ main_text_open: isActive }") {{ mainText }}
           p(class="content_text" v-if="isActive" v-html="contentText")
       .card_tags(v-if="tags.length !== 0" v-bind:class="{ 'card_tags-open': isActive }")
-        work-tag(v-for="tag in tags" v-bind:tag_key="tag" key="tag")
+        work-tag(v-for="tag in tags" v-bind:tag_key="tag" v-bind:key="tag")
 </template>
 
 <script>
