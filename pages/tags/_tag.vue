@@ -13,6 +13,8 @@
             p(class="tag_text") {{ tag.fields.name }}
     .link-under
       nuxt-link(to="/") サイトTOP
+      br
+      nuxt-link(to="/blog") 全ての記事
 </template>
 
 <script>
