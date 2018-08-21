@@ -47,6 +47,6 @@ export default {
     animation shake 2s linear 1
     transform-origin 50% 50%
   .img_opening
-    animation shake 2s linear 1s 1
+    animation shake 2s linear 0.2s 1
     transform-origin 50% 50%
 </style>

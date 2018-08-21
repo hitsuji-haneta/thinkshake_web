@@ -34,7 +34,7 @@ export default {
   transition opacity .5s ease
 .opening
   background-color #d8f3f2
-  transition opacity 3s ease
+  transition opacity .7s ease
 
 .modal-enter
   opacity 0
