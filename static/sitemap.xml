@@ -11,6 +11,10 @@
   <priority>1.0</priority>
 </url>
 <url>
+  <loc>https://thinkshake.net/blog/20180819</loc>
+  <priority>0.8</priority>
+</url>
+<url>
   <loc>https://thinkshake.net/blog/20180804</loc>
   <priority>0.8</priority>
 </url>
