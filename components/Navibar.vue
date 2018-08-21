@@ -78,6 +78,12 @@ export default {
     @media screen and (max-width: 500px)
       flex-direction row
       margin-top 15px
-    @media screen and (min-width: 500px)
+    @media screen and (min-width: 500px) and (max-width: 900px)
+      width 80%
+      margin 0 auto
+      justify-content space-between
+      flex-direction row
+      margin-top 15px
+    @media screen and (min-width: 900px)
       flex-direction column
 </style>

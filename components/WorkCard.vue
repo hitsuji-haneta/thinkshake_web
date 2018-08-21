@@ -1,7 +1,7 @@
 <template lang="pug">
   .card.card-wide(v-bind:id="modal_key" @click.stop="$store.commit('showModal', modal_key)" v-bind:style="duration" v-bind:class="{ card_open: isActive }")
     img(:src="image" v-bind:class="{ 'card_image-open': isActive }" class="card_image" )
-    .card_content(v-bind:class="{ 'card_content-open': isActive }")
+    .card_content(v-bind:class="{ 'card_content-open': isActive, 'card_content-close': !isActive }")
       .card_texts(v-bind:class="{ 'card_texts-open': isActive }")
         .wrapper
           p(class="sub_text" v-bind:class="{ sub_text_open: isActive }") {{ subText }}
@@ -51,7 +51,7 @@ export default {
   .main_text
     width 100%
     transition 0.8s
-    font-size 1.1rem
+    font-size 1.2rem
     &_open
       margin-top 5px
 
