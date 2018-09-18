@@ -35,6 +35,9 @@
         nuxt-link(to="/") サイトTOP
         br
         nuxt-link(to="/blog") 全ての記事
+    
+    #scrollTop
+      a(href="javascript:void(0)" v-scroll-to="'#logo'") ▲
 </template>
 
 <script>
@@ -236,5 +239,30 @@ export default {
 .pager_text {
   text-decoration: none;
   color: #35495e
+}
+
+#scrollTop {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+}
+#scrollTop a {
+  text-decoration: none;
+  background: #35495e;
+  color: #fff;
+  width: 50px;
+  padding: 10px 0;
+  text-align: center;
+  display: block;
+}
+#scrollTop a:hover {
+  text-decoration: none;
+  color: #35495e;
+  background-color: #999999
+}
+@media screen and (max-width: 900px) {
+  #scrollTop {
+    display: none;
+  }
 }
 </style>
