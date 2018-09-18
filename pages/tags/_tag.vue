@@ -40,7 +40,7 @@ export default {
 
     const tagList = await client.getEntries({
       'content_type': env.CTF_TAG_LIST_TYPE_ID,
-      order: '-sys.createdAt'
+      order: '-fields.orderNumber'
     }).then(entries => {
       return {
         tagList: entries.items
