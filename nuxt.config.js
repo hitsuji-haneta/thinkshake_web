@@ -38,8 +38,6 @@ const config = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Source+Code+Pro' }
     ]
   },
   /*
@@ -76,6 +74,9 @@ const config = {
 
   modules: [
     ['nuxt-stylus-resources-loader', resolve(__dirname, 'assets/stylus/**/*.styl')],
+  ],
+  css: [
+    { src: '~/assets/css/font.css' }
   ],
   /*
   ** Get all blog posts from Contentful

@@ -1,3 +1,2 @@
-Code of [thinkshake.net](https://thinkshake.net)
- - portfolio
- - blog (Japanese)
+This is my portfolio and blog!! (In Japanese)  
+[thinkshake.net](https://thinkshake.net)

@@ -179,7 +179,6 @@ export default {
 }
 .copy code {
   color: white;
-  font-family: 'Source Code Pro', monospace, "Source Sans Pro";
 }
 .copy p code {
   color: black;
