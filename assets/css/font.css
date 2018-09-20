@@ -2,18 +2,21 @@
   font-family: 'rounded-mplus-1p';
   font-style: normal;
   font-weight: 300;
+  font-display: swap;
   src: url('~/assets/fonts/rounded-mplus-1p-light.min.woff2') format('woff2');
 }
 @font-face {
   font-family: 'rounded-mplus-1p';
   font-style: normal;
   font-weight: 400;
+  font-display: swap;
   src: url('~/assets/fonts/rounded-mplus-1p-regular.min.woff2') format('woff2');
 }
 @font-face {
   font-family: 'rounded-mplus-1p';
   font-style: normal;
   font-weight: 500;
+  font-display: swap;
   src: url('~/assets/fonts/rounded-mplus-1p-medium.min.woff2') format('woff2');
 }
 
@@ -21,17 +24,20 @@
   font-family: 'SourceCodePro';
   font-style: normal;
   font-weight: 300;
+  font-display: swap;
   src: url('~/assets/fonts/SourceCodePro-Light.min.woff2') format('woff2');
 }
 @font-face {
   font-family: 'SourceCodePro';
   font-style: normal;
   font-weight: 400;
+  font-display: swap;
   src: url('~/assets/fonts/SourceCodePro-Regular.min.woff2') format('woff2');
 }
 @font-face {
   font-family: 'SourceCodePro';
   font-style: normal;
   font-weight: 500;
+  font-display: swap;
   src: url('~/assets/fonts/SourceCodePro-Medium.min.woff2') format('woff2');
 }
