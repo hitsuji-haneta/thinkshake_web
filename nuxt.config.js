@@ -34,7 +34,8 @@ const config = {
       { property: 'og:locale', content: 'ja_JP' },
       { property: 'fb:admins', content: 'fb:app_id' },
       { content: 'summary', name: 'twitter:card' },
-      { content: '@twitter_acount', name: 'twitter:site' }
+      { content: '@twitter_acount', name: 'twitter:site' },
+      { constent: 'jZ1gAQHG8w8alGlalk1Lktsg5LLdWEHjXy_8xq5CKng', name: 'google-site-verification'}
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
