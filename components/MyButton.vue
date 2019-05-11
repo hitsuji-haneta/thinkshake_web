@@ -20,8 +20,9 @@ export default {
 
   .button
     display inline-block
-    border 1.5px solid #35495e
-    color #35495e
+    border 1.5px solid base-color
+    color base-color
+    background-color BG-color
     text-decoration none
     text-align center
     vertical-align middle
@@ -45,7 +46,7 @@ export default {
       box-shadow 1px 1px 11px 1px rgba(0,0,0,0.2)
       border 2.5px solid primary-color
       animation-name none
-    
+
     &-movable
       animation vertical 1s ease-in-out infinite alternate
 
