@@ -301,26 +301,3 @@ code
 
 .link-under
   text-align center
-
-// -- wave --
-wave-size = 15000px
-.wave
-  opacity 0.1
-  position absolute
-  top 'calc(70% - %s)' % wave-size
-  left 'calc(50% - %s / 2)' % wave-size
-  width wave-size
-  height wave-size
-  background-color #fff
-  border-radius 49%
-  border solid 2px primary-color
-.wave.-one
-  animation drift 20000ms infinite linear
-.wave.-two
-  animation drift 30000ms infinite linear
-.wave.-three
-  animation drift 40000ms infinite linear
-
-@keyframes drift
-  from { transform: rotate(0deg); }
-  from { transform: rotate(360deg); }
