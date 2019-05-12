@@ -32,15 +32,15 @@ export default {
 <style lang="stylus" scoped>
   #top
     width 100%
+    height 100%
     display flex
     justify-content top
     text-align center
     flex-direction column
     align-items center
-    margin-bottom 300px
 
   img
-    margin-bottom 300px
+    margin-bottom 400px
     @media screen and (max-width: 500px)
       width 60%
   .img_active
