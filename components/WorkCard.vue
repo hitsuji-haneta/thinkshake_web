@@ -71,7 +71,7 @@ export default {
 
   @keyframes vertical
     from { transform:translateY(-10px); }
-    to { transform:translateY(  0px); }
+    to { transform:translateY( 0px); }
 
   @keyframes fadeIn
     from { opacity: 0; }

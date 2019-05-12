@@ -49,56 +49,6 @@ table
 code
   font-family 'SourceCodePro', monospace
 
-
-// --- layout ---
-.container
-  position relative
-  margin-left auto
-  margin-right auto
-  @media screen and (max-width: 500px)
-    width 100%
-  @media screen and (min-width: 500px)
-    max-width 1080px
-
-.first_view
-  transition 1s
-  top 0
-  left 0
-  width 100%
-  height 100%
-  position fixed
-  z-index 9999
-  display table
-  background-color primary-color
-
-.main
-  width 100%
-  overflow hidden
-  @media screen and (max-width: 900px)
-    padding-top 70px
-  @media screen and (min-width: 900px)
-    padding-left 200px
-
-  &-content
-    position absolute
-    @media screen and (max-width: 900px)
-      width 100%
-    @media screen and (min-width: 900px)
-      width 75%
-
-.navi
-  z-index 1
-  @media screen and (max-width: 900px)
-    background-color white
-    position fixed
-    height 70px
-    width 100%
-  @media screen and (min-width: 900px)
-    position fixed
-    top 40%
-    left 0
-    width 25%
-
 // --- animation ---
 .slide-left-enter
   transform translateX(2000px)

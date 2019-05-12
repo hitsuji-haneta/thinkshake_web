@@ -1,10 +1,9 @@
 <template lang="pug">
-  nav
-    .link
-      my-button(text="about" v-bind:onClick="aboutClick" v-bind:isActive="aboutActive")
-      my-button(text="works" v-bind:onClick="worksClick" v-bind:isActive="worksActive")
-      my-button(text="contact" v-bind:onClick="contactClick" v-bind:isActive="contactActive")
-      my-button(text="blog" v-bind:onClick="blogClick" v-bind:isActive="blogActive")
+  nav(class="sidebar")
+    my-button(text="about" v-bind:onClick="aboutClick" v-bind:isActive="aboutActive")
+    my-button(text="works" v-bind:onClick="worksClick" v-bind:isActive="worksActive")
+    my-button(text="contact" v-bind:onClick="contactClick" v-bind:isActive="contactActive")
+    my-button(text="blog" v-bind:onClick="blogClick" v-bind:isActive="blogActive")
 </template>
 
 <script>
@@ -68,7 +67,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-  .link
+  .sidebar
     height 100%
     width 100%
     list-style none

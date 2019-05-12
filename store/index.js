@@ -8,6 +8,7 @@ const createStore = () => {
             modal_key: 'close',
             opening: true,
             modal_pos: 0,
+            toggleMenu: false,
         },
         mutations: {
             showModal(state, key) {
@@ -27,9 +28,22 @@ const createStore = () => {
             closeModal(state) {
                 state.modal = false
                 state.modal_key = 'close'
-                window.scrollTo({top: state.modal_pos, behavior: 'smooth'})
+                if(state.modal_pos) window.scrollTo({top: state.modal_pos, behavior: 'smooth'})
+                if(state.toggleMenu) state.toggleMenu = false
                 state.modal_pos = 0
             },
+            openMenu(state) {
+                state.modal = true
+                state.toggleMenu = true
+            },
+        },
+        actions: {
+            closeModal ({ commit }) {
+                commit('closeModal')
+            },
+            openMenu ({ commit }) {
+                commit('openMenu')
+            }
         }
     })
 }

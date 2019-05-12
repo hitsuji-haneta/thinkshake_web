@@ -35,7 +35,7 @@ export default {
       return this.isShown(0, 300)
     },
     showImage() {
-      return this.isShown(400, 300)
+      return this.isShown(300, 300)
     },
   }
 }
@@ -50,6 +50,7 @@ export default {
     flex-direction column
     align-items center
     margin-bottom 300px
+    overflow hidden
 
   #about > p
     font-size 1.2rem
