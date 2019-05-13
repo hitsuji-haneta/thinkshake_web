@@ -13,8 +13,8 @@
           a(href="#" class="menu_item" @click.stop.prevent="worksClick") works
         li
           a(href="#" class="menu_item" @click.stop.prevent="contactClick") contact
-        li
-          a(href="#" class="menu_item" @click.stop.prevent="blogClick") blog
+        //- li
+        //-   a(href="#" class="menu_item" @click.stop.prevent="blogClick") blog
 </template>
 
 <script>
