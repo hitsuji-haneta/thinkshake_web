@@ -21,6 +21,8 @@ function mainTextSwitch(key) {
   switch (key) {
     case 'profile':
       return '髙橋翔太について'
+    case 'credentia':
+      return 'ブロックチェーン証明書発行システム'
     case 'co-labo':
       return '実験機器シェアリングサービス'
     case 'ec':
@@ -31,6 +33,8 @@ function mainTextSwitch(key) {
       return '職員有給休暇管理ツール'
     case 'F2R':
       return '人口関連多次元表作成プログラム'
+    case 'qiita':
+      return '技術ブログ'
     default:
       return ''
   }
@@ -40,16 +44,20 @@ function subTextSwitch(key) {
   switch (key) {
     case 'profile':
       return 'profile'
+    case 'credentia':
+      return 'Credentia Blockchain Technologies 様'
     case 'co-labo':
       return '株式会社Co-LABO MAKER 様'
     case 'ec':
-      return '某通信制高校 様'
+      return '仙台白百合学園高等学校通信制課程 様'
     case 'web':
       return 'thinkShake製作所'
     case 'yukyu':
       return '某学校法人 様'
     case 'F2R':
       return '国交省 国土技術政策総合研究所 様'
+    case 'qiita':
+      return 'qiitaへの投稿'
     default:
       return ''
   }
@@ -63,10 +71,15 @@ function contentTextSwitch(key) {
             + '<br/>退職後、2016年より「thinkShake製作所」の屋号でフリーランスのエンジニアとして活動をしています。'
             + '<br/>教育にも強い関心があるため、宮城県内の高校で非常勤講師としてお世話になっています。'
             + '<br/>音楽と甘いものが好きです。'
+    case 'credentia':
+      return '株式会社Credentia Blockchain Technologies様はブロックチェーン証明書の発行サービスを運営しているスタートアップです。'
+            + '<br/>アメリカ、タイ、日本の３カ国に拠点があり、創業間もないながらもスピード感を持ってグローバルなビジネスを展開しています。'
+            + '<br/>ブロックチェーンという技術的にもチャレンジングな領域で、プロダクト開発を担当しています。'
+            + '<br/><a href="https://credentia.io/" target="_blank">https://credentia.io/</a>'
     case 'co-labo':
       return '株式会社Co-LABO MAKER様は実験機器・リソースのシェアリングサービスを運営しているスタートアップです。'
-            + '<br/>初期からの参加メンバーであり、現在は開発・プロジェクトマネジメント・経営戦略などの業務に携わってます。'
-            + '<br/>変化の激しいスタートアップの領域において、仮説検証を繰り返しながらアジャイルな開発を進めています。'
+            + '<br/>創業初期から参加させていただき、開発責任者としてプロダクト開発・プロジェクトマネジメント・経営戦略などの業務を担当しました。'
+            + '<br/>変化の激しいスタートアップの領域において、仮説検証を繰り返しながらアジャイルな開発を行いました。'
             + '<br/><a href="https://co-labo-maker.com/" target="_blank">https://co-labo-maker.com/</a>'
     case 'ec':
       return '通信制高校のカリキュラムは全日制と大きく異なるため、既存の成績管理システムが使えません。'
@@ -83,6 +96,9 @@ function contentTextSwitch(key) {
       return '複数の統計情報から多次元行列を作成し、人口分布の統計分析を行うプログラムです。'
             + '<br/>お客様はもともとFortranで書かれたプログラムをお持ちでしたが、Fortranの環境構築が面倒なこと、既存ソースコードが難解で計算内容が追いにくいことを課題としてお持ちでした。'
             + '<br/>環境構築が容易であり機能が豊富なR言語への移植へ行い、オブジェクト指向(R6クラス)を中心とした解読しやすいソースコードへリファクタリングしました。'
+    case 'qiita':
+      return '定期的にQiitaへ技術系の記事を投稿しています。'
+            + '<br/><a href="https://qiita.com/hitsuji-haneta" target="_blank">https://qiita.com/hitsuji-haneta</a>'
     default:
       return ''
   }
@@ -109,16 +125,20 @@ function closedImageSwitch(key) {
   switch (key) {
     case 'profile':
       return '/profile.png'
+    case 'credentia':
+      return '/credentia.png'
     case 'co-labo':
       return '/co-labo.png'
     case 'ec':
-      return '/ec.png'
+      return '/ec_logo.gif'
     case 'web':
       return '/logo.png'
     case 'yukyu':
       return '/yukyu.png'
     case 'F2R':
       return '/F2R.jpg'
+    case 'qiita':
+      return '/qiita-text.png'
     default:
       return '/logo.png'
   }
@@ -128,6 +148,8 @@ function openedImageSwitch(key) {
   switch (key) {
     case 'profile':
       return '/profile_open.jpg'
+    case 'credentia':
+      return '/credentia.png'
     case 'co-labo':
       return '/co-labo.gif'
     case 'ec':
@@ -138,6 +160,8 @@ function openedImageSwitch(key) {
       return '/yukyu.gif'
     case 'F2R':
       return '/F2R.jpg'
+    case 'qiita':
+      return '/qiita-text.png'
     default:
       return '/logo.png'
   }

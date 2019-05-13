@@ -2,11 +2,14 @@
   section#works
     h1 works
     p 過去に製作したシステムの中から、掲載許可を頂いた一部を公開しています。
-    work-card(text_main="実験機器シェアリングサービス", text_sub="株式会社Co-LABO MAKER 様",　modal_key="co-labo")
-    work-card(text_main="通信制高校向け教務管理システム", modal_key="ec")
-    work-card(text_main="人口関連多次元表作成プログラム", text_sub="国交省 国土技術政策総合研究所 様",　modal_key="F2R")
-    work-card(text_main="有給管理システム", modal_key="yukyu")
-    work-card(text_main="このwebサイト", modal_key="web")
+    .works_wrapper
+      work-card(modal_key="credentia")
+      work-card(modal_key="co-labo")
+      work-card(modal_key="ec")
+      work-card(modal_key="F2R")
+      work-card(modal_key="yukyu")
+      work-card(modal_key="qiita")
+      work-card(modal_key="web")
 </template>
 
 <script>
@@ -28,6 +31,15 @@ export default {
     flex-direction column
     align-items center
     margin-bottom 300px
+
+  .works_wrapper
+    width 100%
+    display flex
+    justify-content center
+    flex-direction row
+    align-items center
+    align-content stretch
+    flex-wrap wrap
 
   p
     font-size 1.2rem
