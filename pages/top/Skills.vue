@@ -1,6 +1,6 @@
 <template lang="pug">
   section#skills
-    h1 skills
+    h1(class="sectionTitle") skills
     .skills_wrapper
       ul(class="circle_box" v-circle)
         li(class="circle_item") JavaScript
@@ -57,7 +57,7 @@ export default {
 <style lang="stylus" scoped>
 #skills
   width 100%
-  height 100vh
+  height 90vh
   display flex
   justify-content top
   text-align center
@@ -70,7 +70,7 @@ export default {
   position relative
   overflow hidden
   @media screen and (max-width: 500px)
-    right -50vw
+    right -60vw
   @media screen and (min-width: 500px)
     right 0
 

@@ -49,6 +49,24 @@ table
 code
   font-family 'SourceCodePro', monospace
 
+.sectionTitle
+  width 80%
+  font-size 2rem
+  letter-spacing 0.5rem
+  display flex
+  align-items center
+  &:before, &:after
+    content ""
+    background-color base-color
+    height 2px
+    flex-grow 1
+    display block
+    margin 0
+  &:before
+    margin-right 1rem
+  &:after
+    margin-left 1rem
+
 // --- animation ---
 .slide-left-enter
   transform translateX(2000px)
@@ -87,6 +105,14 @@ code
   100% { transform:translateX(0px) }
 }
 
+@keyframes vertical
+  from { transform:translateY(-10px); }
+  to { transform:translateY(0px); }
+
+@keyframes horizontal
+  from { transform:translateX(-3px); }
+  to { transform:translateX(0px); }
+
 // --- card ---
 .card
   background-color BG-color
@@ -110,6 +136,7 @@ code
       padding 0 30px 0
 
   &-square
+    border-radius 1rem
     @media screen and (max-width: 500px)
       width 130px
       height 150px
@@ -154,17 +181,11 @@ code
   &-imageWrapper
     max-width 90%
     @media screen and (max-width: 500px)
-      // max-height 100px
       margin 30px 0px 30px 0px
     @media screen and (min-width: 500px)
-      // max-height 170px
       margin 15px 0px 15px 0px
     &-open
       margin 20px auto
-      // @media screen and (max-width: 500px)
-      //   max-height 150px
-      // @media screen and (min-width: 500px)
-      //   max-height 250px
 
   &_content
     display flex
@@ -179,20 +200,6 @@ code
     &-close
       @media screen and (max-width: 330px)
         width 200px
-
-  // &_texts
-  //   display table
-  //   margin 0 auto
-  //   width 100%
-    // @media screen and (max-width: 500px)
-    //   height 75%
-    // @media screen and (min-width: 500px)
-    //   height 80%
-    // &-open
-    //   @media screen and (max-width: 500px)
-    //     height 70%
-    //   @media screen and (min-width: 500px)
-    //     height 70%
 
   &_tags
     display flex

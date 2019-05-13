@@ -1,6 +1,6 @@
 <template lang="pug">
   section#works
-    h1 works
+    h1(class="sectionTitle") works
     p 過去に製作したシステムの中から、掲載許可を頂いた一部を公開しています。
     .works_wrapper
       work-card(modal_key="credentia")

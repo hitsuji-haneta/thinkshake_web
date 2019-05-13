@@ -7,8 +7,6 @@
         p(class="sub_text" v-if="isActive") {{ subText }}
         p(class="main_text" v-bind:class="{ main_text_open: isActive }") {{ mainText }}
         p(class="content_text" v-if="isActive" v-html="contentText")
-      //- .card_tags(v-if="tags.length !== 0" v-bind:class="{ 'card_tags-open': isActive }")
-      //-   work-tag(v-for="tag in tags" v-bind:tag_key="tag" v-bind:key="tag")
 </template>
 
 <script>
@@ -23,13 +21,13 @@ export default {
     WorkTag,
   },
   data() {
-    return { 
+    return {
       mainText: modalSwitch(this.modal_key, 'mainText'),
       subText: modalSwitch(this.modal_key, 'subText'),
       tags: modalSwitch(this.modal_key, 'tags'),
       closedImage: modalSwitch(this.modal_key, 'closedImage'),
       openedImage: modalSwitch(this.modal_key, 'openedImage'),
-      duration: `animation-duration: ${Math.random()+3}s`,
+      duration: `animation-duration: ${Math.random()+2.5}s`,
       contentText: modalSwitch(this.modal_key, 'contentText'),
     }
   },
@@ -58,6 +56,7 @@ export default {
       font-size 1rem
     &_open
       font-size 1.2rem
+      font-weight 500
 
   .sub_text
     width 100%
@@ -80,10 +79,6 @@ export default {
     @media screen and (min-width: 500px)
       font-size 1rem
       padding 20px 50px
-
-  @keyframes vertical
-    from { transform:translateY(-10px); }
-    to { transform:translateY( 0px); }
 
   @keyframes fadeIn
     from { opacity: 0; }

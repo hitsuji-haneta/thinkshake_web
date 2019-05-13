@@ -1,6 +1,6 @@
 <template lang="pug">
   section#contact
-    h1 contact
+    h1(class="sectionTitle") contact
     p お問合せはこちらから。<br/>お気軽にどうぞ！
     .form
       my-button(text="mail" v-bind:onClick="onClick" v-bind:isActive="isActive")

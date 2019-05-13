@@ -60,12 +60,4 @@ export default {
       color #fff
       border 1.5px solid primary-color
       background-color primary-color
-
-  @keyframes horizontal
-    from { transform:translateX(-3px); }
-    to { transform:translateX(  0px); }
-
-  @keyframes vertical
-    from { transform:translateY(-10px); }
-    to { transform:translateY(  0px); }
 </style>
