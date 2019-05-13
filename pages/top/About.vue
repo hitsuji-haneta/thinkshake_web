@@ -49,7 +49,7 @@ export default {
     text-align center
     flex-direction column
     align-items center
-    margin-bottom 300px
+    margin-bottom 30vh
     overflow hidden
 
   #about > p

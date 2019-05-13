@@ -3,8 +3,9 @@
     top
     about
     works
+    skills
     contact
-    blog
+    //- blog
     .box
       div(class="wave -one")
       div(class="wave -two")
@@ -16,7 +17,8 @@ import { mapState } from "vuex";
 import Top from "~/pages/top/Top.vue";
 import About from "~/pages/top/About.vue";
 import Works from "~/pages/top/Works.vue";
-import Blog from "~/pages/top/Blog.vue";
+// import Blog from "~/pages/top/Blog.vue";
+import Skills from "~/pages/top/Skills.vue";
 import Contact from "~/pages/top/Contact.vue";
 
 export default {
@@ -25,7 +27,8 @@ export default {
     Top,
     About,
     Works,
-    Blog,
+    Skills,
+    // Blog,
     Contact
   }
 };

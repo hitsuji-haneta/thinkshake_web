@@ -12,6 +12,8 @@
         li
           a(href="#" class="menu_item" @click.stop.prevent="worksClick") works
         li
+          a(href="#" class="menu_item" @click.stop.prevent="skillsClick") skills
+        li
           a(href="#" class="menu_item" @click.stop.prevent="contactClick") contact
         //- li
         //-   a(href="#" class="menu_item" @click.stop.prevent="blogClick") blog
@@ -36,6 +38,9 @@ export default {
     },
     worksClick: function() {
       this.topClick('works')
+    },
+    skillsClick: function() {
+      this.topClick('skills')
     },
     contactClick: function() {
       this.topClick('contact')

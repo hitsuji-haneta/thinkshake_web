@@ -2,6 +2,7 @@
   nav(class="sidebar")
     my-button(text="about" v-bind:onClick="aboutClick" v-bind:isActive="aboutActive")
     my-button(text="works" v-bind:onClick="worksClick" v-bind:isActive="worksActive")
+    my-button(text="skills" v-bind:onClick="skillsClick" v-bind:isActive="skillsActive")
     my-button(text="contact" v-bind:onClick="contactClick" v-bind:isActive="contactActive")
     //- my-button(text="blog" v-bind:onClick="blogClick" v-bind:isActive="blogActive")
 </template>
@@ -21,6 +22,9 @@ export default {
     worksActive() {
       return this.topActive('works')
     },
+    skillsActive() {
+      return this.topActive('skills')
+    },
     contactActive() {
       return this.topActive('contact')
     },
@@ -34,6 +38,9 @@ export default {
     },
     worksClick: function() {
       this.topClick('works')
+    },
+    skillsClick: function() {
+      this.topClick('skills')
     },
     contactClick: function() {
       this.topClick('contact')
