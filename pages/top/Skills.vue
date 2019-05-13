@@ -1,6 +1,7 @@
 <template lang="pug">
   section#skills
     h1(class="sectionTitle") skills
+    p 持っている技術のご紹介です。
     .skills_wrapper
       ul(class="circle_box" v-circle)
         li(class="circle_item") JavaScript
@@ -27,6 +28,7 @@
         li(class="circle_item") MongoDB
         li(class="circle_item") Java
         li(class="circle_item") CircleCI
+        li(class="circle_item") Docker
         li(class="circle_item") R
 </template>
 
@@ -65,6 +67,10 @@ export default {
   align-items center
   margin-bottom 30vh
   overflow hidden
+  & > p
+      font-size 1.2rem
+      width 85%
+      margin-top 40px
 
 .skills_wrapper
   position relative

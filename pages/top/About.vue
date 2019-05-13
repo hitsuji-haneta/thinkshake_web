@@ -1,7 +1,6 @@
 <template lang="pug">
   section#about
     h1(class="sectionTitle") about
-    p ようこそ!<br/>thinkShake製作所はwebエンジニア高橋翔太の個人企業です。
     div(class="box" v-bind:class="{ show: showBox }")
       img(src="profile.png" class="profile_image")
       img(src="profile_open.jpg" class="profile_image profile_secondImage" v-bind:class="{ show: showImage }")

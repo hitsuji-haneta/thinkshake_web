@@ -34,7 +34,7 @@ function mainTextSwitch(key) {
     case 'F2R':
       return '人口関連多次元表作成プログラム'
     case 'qiita':
-      return '技術ブログ'
+      return '技術ブログの執筆'
     default:
       return ''
   }
@@ -97,7 +97,7 @@ function contentTextSwitch(key) {
             + '<br/>お客様はもともとFortranで書かれたプログラムをお持ちでしたが、Fortranの環境構築が面倒なこと、既存ソースコードが難解で計算内容が追いにくいことを課題としてお持ちでした。'
             + '<br/>環境構築が容易であり機能が豊富なR言語への移植へ行い、オブジェクト指向(R6クラス)を中心とした解読しやすいソースコードへリファクタリングしました。'
     case 'qiita':
-      return '定期的にQiitaへ技術系の記事を投稿しています。'
+      return '定期的に技術系の記事を執筆し、Qiitaへ投稿しています。'
             + '<br/><a href="https://qiita.com/hitsuji-haneta" target="_blank">https://qiita.com/hitsuji-haneta</a>'
     default:
       return ''
@@ -138,7 +138,7 @@ function closedImageSwitch(key) {
     case 'F2R':
       return '/F2R.jpg'
     case 'qiita':
-      return '/qiita-text.png'
+      return '/qiita-favicon.png'
     default:
       return '/logo.png'
   }

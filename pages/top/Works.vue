@@ -1,7 +1,7 @@
 <template lang="pug">
   section#works
     h1(class="sectionTitle") works
-    p 過去に製作したシステムの中から、掲載許可を頂いた一部を公開しています。
+    p 関わったお仕事の一部を公開しています。
     .works_wrapper
       work-card(modal_key="credentia")
       work-card(modal_key="co-labo")
@@ -31,6 +31,11 @@ export default {
     flex-direction column
     align-items center
     margin-bottom 30vh
+  & > p
+      font-size 1.2rem
+      width 85%
+      margin-top 40px
+      margin-bottom 40px
 
   .works_wrapper
     width 100%
@@ -40,10 +45,4 @@ export default {
     align-items center
     align-content stretch
     flex-wrap wrap
-
-  p
-    font-size 1.2rem
-    width 85%
-    margin-top 40px
-    margin-bottom 40px
 </style>

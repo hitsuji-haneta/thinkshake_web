@@ -1,6 +1,7 @@
 <template lang="pug">
   section#top
     img#logo(src="~/assets/logo.png" v-bind:class="{ img_active: isActive }" v-bind:style="{ marginTop: marginTop + 'px' }")
+    p(class="top_text") ようこそ!<br/>thinkShake製作所はwebエンジニア高橋翔太の個人企業です。
 </template>
 
 <script>
@@ -49,4 +50,9 @@ export default {
   .img_opening
     animation shake 2s linear 0.2s 1
     transform-origin 50% 50%
+
+  .top_text
+    max-width 90%
+    font-size 1.5rem
+    margin-bottom 10vh
 </style>
