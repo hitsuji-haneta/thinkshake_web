@@ -4,18 +4,16 @@
     p 持っている技術のご紹介です。
     .skills_wrapper
       ul(class="circle_box" v-circle)
-        li(class="circle_item") JavaScript
         li(class="circle_item") TypeScript
         li(class="circle_item") Python
         li(class="circle_item") Go
         li(class="circle_item") GraphQL
         li(class="circle_item") React.js
-        li(class="circle_item") React Native
+        li(class="circle_item") React<br/>Native
         li(class="circle_item") Redux
         li(class="circle_item") Vue.js
         li(class="circle_item") Nuxt.js
-        li(class="circle_item") Ruby on Rails
-        li(class="circle_item") Express
+        li(class="circle_item") Ruby on<br/>Rails
         li(class="circle_item") Node.js
         li(class="circle_item") EOS
         li(class="circle_item") Ethereum
@@ -23,10 +21,8 @@
         li(class="circle_item") AWS
         li(class="circle_item") GCP
         li(class="circle_item") Firebase
-        li(class="circle_item") MySQL
-        li(class="circle_item") PostgreSQL
+        li(class="circle_item") SQL
         li(class="circle_item") MongoDB
-        li(class="circle_item") Java
         li(class="circle_item") CircleCI
         li(class="circle_item") Docker
         li(class="circle_item") R
@@ -41,8 +37,8 @@ export default {
       inserted: function(el) {
         const items = el.children
         console.log(items.length);
-        const deg = 360 / items.length
-        const radian = deg * Math.PI / 180
+        const deg = 360.0 / items.length
+        const radian = deg * Math.PI / 180.0
         const radius = 300
         const center = 400
         Array.forEach(items, (el, i) => {
@@ -59,7 +55,6 @@ export default {
 <style lang="stylus" scoped>
 #skills
   width 100%
-  height 90vh
   display flex
   justify-content top
   text-align center
@@ -67,6 +62,10 @@ export default {
   align-items center
   margin-bottom 30vh
   overflow hidden
+  @media screen and (max-width: 500px)
+    height 90vh
+  @media screen and (min-width: 500px)
+    height 110vh
   & > p
       font-size 1.2rem
       width 85%
@@ -88,6 +87,7 @@ export default {
 
 .circle_item
   font-size 1.2rem
+  font-weight 500
   display inline-block
   position absolute
   animation drift-reverse 20000ms infinite linear

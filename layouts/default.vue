@@ -15,7 +15,7 @@
 <script>
 import Navibar from '~/components/Navibar.vue'
 import MyMenu from '~/components/MyMenu.vue'
-import BlogHeader from '~/components/BlogHeader.vue'
+// import BlogHeader from '~/components/BlogHeader.vue'
 import MyFooter from '~/components/MyFooter.vue'
 import Modal from '~/components/Modal.vue'
 
@@ -24,7 +24,7 @@ export default {
     Navibar,
     MyMenu,
     Modal,
-    BlogHeader,
+    // BlogHeader,
     MyFooter
   },
   mounted: function() {

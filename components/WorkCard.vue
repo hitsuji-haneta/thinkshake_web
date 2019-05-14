@@ -11,14 +11,14 @@
 
 <script>
 import Modal from '~/components/Modal.vue'
-import WorkTag from '~/components/WorkTag.vue'
+// import WorkTag from '~/components/WorkTag.vue'
 import modalSwitch from '~/assets/modalSwitch.js'
 
 export default {
   props: ['modal_key'],
   components: {
     Modal,
-    WorkTag,
+    // WorkTag,
   },
   data() {
     return {
