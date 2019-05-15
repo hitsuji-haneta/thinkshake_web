@@ -26,12 +26,12 @@ export default {
       }
     },
     centerOfWindow: function() {
-      return process.browser ? this.$window.height/2 - 100 : 0
+      return process.browser ? this.$window.height/2 : 0
     },
   },
   computed: {
     showBox() {
-      return this.isShown(0, 300)
+      return this.isShown(-100, 300)
     },
     showImage() {
       return this.isShown(300, 300)

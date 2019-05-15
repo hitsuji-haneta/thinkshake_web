@@ -19,8 +19,6 @@ export default function(key, type) {
 
 function mainTextSwitch(key) {
   switch (key) {
-    case 'profile':
-      return '髙橋翔太について'
     case 'credentia':
       return 'ブロックチェーン証明書発行システム'
     case 'co-labo':
@@ -50,8 +48,6 @@ function mainTextSwitch(key) {
 
 function subTextSwitch(key) {
   switch (key) {
-    case 'profile':
-      return 'profile'
     case 'credentia':
       return 'Credentia Blockchain Technologies 様'
     case 'co-labo':
@@ -81,12 +77,6 @@ function subTextSwitch(key) {
 
 function contentTextSwitch(key) {
   switch (key) {
-    case 'profile':
-      return '1986年福島県大玉村生まれ、宮城県仙台市在住です。'
-            + '<br/>東北大学大学院修士課程修了後、株式会社NTTデータにて開発・マネジメント業務に従事しました。'
-            + '<br/>退職後、2016年より「thinkShake製作所」の屋号でフリーランスのエンジニアとして活動をしています。'
-            + '<br/>教育にも強い関心があるため、宮城県内の高校で非常勤講師としてお世話になっています。'
-            + '<br/>音楽と甘いものが好きです。'
     case 'credentia':
       return '株式会社Credentia Blockchain Technologies様はブロックチェーン証明書の発行サービスを運営しているスタートアップです。'
             + '<br/>アメリカ、タイ、日本の３カ国に拠点があり、創業間もないながらもスピード感を持ってグローバルなビジネスを展開しています。'
@@ -155,8 +145,6 @@ function contentTextSwitch(key) {
 
 function closedImageSwitch(key) {
   switch (key) {
-    case 'profile':
-      return '/profile.png'
     case 'credentia':
       return '/credentia.png'
     case 'co-labo':
@@ -186,8 +174,6 @@ function closedImageSwitch(key) {
 
 function openedImageSwitch(key) {
   switch (key) {
-    case 'profile':
-      return '/profile_open.jpg'
     case 'credentia':
       return '/credentia.gif'
     case 'co-labo':

@@ -1,31 +1,31 @@
 <template lang="pug">
   section#skills
     h1(class="sectionTitle") skills
-    p 持っている技術のご紹介です。
+    p 持っている技術の一部をご紹介しています。
     .skills_wrapper
       ul(class="circle_box" v-circle)
         li(class="circle_item") TypeScript
         li(class="circle_item") Python
+        li(class="circle_item") R
         li(class="circle_item") Go
-        li(class="circle_item") GraphQL
         li(class="circle_item") React.js
         li(class="circle_item") React<br/>Native
         li(class="circle_item") Redux
         li(class="circle_item") Vue.js
         li(class="circle_item") Nuxt.js
-        li(class="circle_item") Ruby on<br/>Rails
         li(class="circle_item") Node.js
+        li(class="circle_item") Ruby<br/>on Rails
+        li(class="circle_item") GraphQL
         li(class="circle_item") EOS
         li(class="circle_item") Ethereum
         li(class="circle_item") Solidity
-        li(class="circle_item") AWS
-        li(class="circle_item") GCP
-        li(class="circle_item") Firebase
         li(class="circle_item") SQL
         li(class="circle_item") MongoDB
+        li(class="circle_item") Firebase
+        li(class="circle_item") AWS
+        li(class="circle_item") GCP
         li(class="circle_item") CircleCI
         li(class="circle_item") Docker
-        li(class="circle_item") R
 </template>
 
 <script>

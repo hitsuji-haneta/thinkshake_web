@@ -42,6 +42,6 @@ export default {
     margin-bottom 40px
 
   .form
-    height 300px
+    height 200px
     width 80%
 </style>
