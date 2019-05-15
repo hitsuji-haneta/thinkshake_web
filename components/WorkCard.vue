@@ -24,7 +24,7 @@ export default {
     return {
       mainText: modalSwitch(this.modal_key, 'mainText'),
       subText: modalSwitch(this.modal_key, 'subText'),
-      tags: modalSwitch(this.modal_key, 'tags'),
+      // tags: modalSwitch(this.modal_key, 'tags'),
       closedImage: modalSwitch(this.modal_key, 'closedImage'),
       openedImage: modalSwitch(this.modal_key, 'openedImage'),
       duration: `animation-duration: ${Math.random()+2.5}s`,

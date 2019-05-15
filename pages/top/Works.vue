@@ -1,14 +1,18 @@
 <template lang="pug">
   section#works
     h1(class="sectionTitle") works
-    p 関わったお仕事の一部を公開しています。
+    p 関わったお仕事や活動の一部を公開しています。
     .works_wrapper
       work-card(modal_key="credentia")
       work-card(modal_key="co-labo")
       work-card(modal_key="ec")
       work-card(modal_key="F2R")
       work-card(modal_key="yukyu")
+      work-card(modal_key="d-pro")
+      work-card(modal_key="workshop")
+      work-card(modal_key="wackhack")
       work-card(modal_key="qiita")
+      work-card(modal_key="youtube")
       work-card(modal_key="web")
 </template>
 

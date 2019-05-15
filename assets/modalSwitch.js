@@ -6,8 +6,8 @@ export default function(key, type) {
       return subTextSwitch(key);
     case 'contentText':
       return contentTextSwitch(key);
-    case 'tags':
-      return tagSwitch(key);
+    // case 'tags':
+    //   return tagSwitch(key);
     case 'closedImage':
       return closedImageSwitch(key);
     case 'openedImage':
@@ -26,15 +26,23 @@ function mainTextSwitch(key) {
     case 'co-labo':
       return '実験機器シェアリングサービス'
     case 'ec':
-      return '教務・成績管理システム'
+      return '教務管理システム'
     case 'web':
       return 'このwebサイト'
     case 'yukyu':
-      return '職員有給休暇管理ツール'
+      return '有給休暇管理ツール'
     case 'F2R':
       return '人口関連多次元表作成プログラム'
     case 'qiita':
       return '技術ブログの執筆'
+    case 'workshop':
+      return 'ワークショップ'
+    case 'wackhack':
+      return 'Techサークル'
+    case 'd-pro':
+      return 'ポスターデザイン'
+    case 'youtube':
+      return 'Youtube動画の投稿'
     default:
       return ''
   }
@@ -58,6 +66,14 @@ function subTextSwitch(key) {
       return '国交省 国土技術政策総合研究所 様'
     case 'qiita':
       return 'qiitaへの投稿'
+    case 'workshop':
+      return ''
+    case 'wackhack':
+      return 'Wack Hack Sendai'
+    case 'd-pro':
+      return 'D-PROJECT 様'
+    case 'youtube':
+      return ''
     default:
       return ''
   }
@@ -74,7 +90,7 @@ function contentTextSwitch(key) {
     case 'credentia':
       return '株式会社Credentia Blockchain Technologies様はブロックチェーン証明書の発行サービスを運営しているスタートアップです。'
             + '<br/>アメリカ、タイ、日本の３カ国に拠点があり、創業間もないながらもスピード感を持ってグローバルなビジネスを展開しています。'
-            + '<br/>ブロックチェーンという技術的にもチャレンジングな領域で、プロダクト開発を担当しています。'
+            + '<br/>技術的にもチャレンジングなブロックチェーンという領域で、プロダクト開発を担当しています。'
             + '<br/><a href="https://credentia.io/" target="_blank">https://credentia.io/</a>'
     case 'co-labo':
       return '株式会社Co-LABO MAKER様は実験機器・リソースのシェアリングサービスを運営しているスタートアップです。'
@@ -99,27 +115,43 @@ function contentTextSwitch(key) {
     case 'qiita':
       return '定期的に技術系の記事を執筆し、Qiitaへ投稿しています。'
             + '<br/><a href="https://qiita.com/hitsuji-haneta" target="_blank">https://qiita.com/hitsuji-haneta</a>'
+    case 'workshop':
+      return '中高生向けにプログラミングワークショップを開催しています。'
+            + '<br/>プログラミング技術の習得よりも、「挑戦する習慣」や「失敗を重ねる＆失敗から学ぶ」というマインドを重視しています。'
+            + '<br/>気軽な気持ちでまずは体験から！'
+    case 'wackhack':
+      return '仲間と一緒にTechサークル「Wack Hack Sendai」を立ち上げ、勉強会の開催やテストプロダクトの開発をしています。'
+            + '<br/>合言葉は「仙台を盛り上げる！」'
+    case 'd-pro':
+      return 'D-PROJECT様はブラジル音楽を中心とした打楽器サークルです。'
+            + '<br/>2019年度メンバー募集のポスターデザインを担当させていただきました。'
+            + '<br/>打楽器が一斉に鳴ったときの迫力と、大人も子供も一緒に活動するD-PROJECT特有の親しみやすさを表現しました。'
+    case 'youtube':
+      return '読書好きが高じて、読書系Youtuberになってしまいました（笑）'
+            + '<br/>読んで面白かった本を、定期的に紹介します！'
+            + '<br/>よろしければチャンネル登録を〜'
+            + '<br/><a href="https://www.youtube.com/channel/UCaIZDgiTHnG-QZBzsyer-CA" target="_blank">https://www.youtube.com/channel/UCaIZDgiTHnG-QZBzsyer-CA</a>'
     default:
       return ''
   }
 }
 
-function tagSwitch(key) {
-  switch (key) {
-    case 'co-labo':
-      return ['Ruby', 'RoR', 'jQuery']
-    case 'ec':
-      return ['React', 'Redux', 'Node.js']
-    case 'web':
-      return ['Vue.js', 'Nuxt.js']
-    case 'yukyu':
-      return ['VBA']
-    case 'F2R':
-      return ['R', 'Fortran']
-    default:
-      return []
-  }
-}
+// function tagSwitch(key) {
+//   switch (key) {
+//     case 'co-labo':
+//       return ['Ruby', 'RoR', 'jQuery']
+//     case 'ec':
+//       return ['React', 'Redux', 'Node.js']
+//     case 'web':
+//       return ['Vue.js', 'Nuxt.js']
+//     case 'yukyu':
+//       return ['VBA']
+//     case 'F2R':
+//       return ['R', 'Fortran']
+//     default:
+//       return []
+//   }
+// }
 
 function closedImageSwitch(key) {
   switch (key) {
@@ -139,6 +171,14 @@ function closedImageSwitch(key) {
       return '/F2R.jpg'
     case 'qiita':
       return '/qiita-favicon.png'
+    case 'workshop':
+      return '/workshop.png'
+    case 'wackhack':
+      return '/wackhack.png'
+    case 'd-pro':
+      return '/d-pro.png'
+    case 'youtube':
+      return '/youtube.png'
     default:
       return '/logo.png'
   }
@@ -149,7 +189,7 @@ function openedImageSwitch(key) {
     case 'profile':
       return '/profile_open.jpg'
     case 'credentia':
-      return '/credentia.png'
+      return '/credentia.gif'
     case 'co-labo':
       return '/co-labo.gif'
     case 'ec':
@@ -162,6 +202,14 @@ function openedImageSwitch(key) {
       return '/F2R.jpg'
     case 'qiita':
       return '/qiita-text.png'
+    case 'workshop':
+      return '/workshop.png'
+    case 'wackhack':
+      return '/wackhack.png'
+    case 'd-pro':
+      return '/d-pro_open.png'
+    case 'youtube':
+      return '/youtube.gif'
     default:
       return '/logo.png'
   }
