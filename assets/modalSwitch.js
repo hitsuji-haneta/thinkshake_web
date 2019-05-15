@@ -73,7 +73,7 @@ function subTextSwitch(key) {
     case 'd-pro':
       return 'D-PROJECT 様'
     case 'youtube':
-      return ''
+      return 'ヒツジハネタの読書ログ'
     default:
       return ''
   }
