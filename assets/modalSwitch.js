@@ -41,6 +41,8 @@ function mainTextSwitch(key) {
       return 'ポスターデザイン'
     case 'youtube':
       return 'Youtube動画の投稿'
+    case 'procon':
+      return 'みやぎプロコン'
     default:
       return ''
   }
@@ -121,6 +123,13 @@ function contentTextSwitch(key) {
             + '<br/>読んで面白かった本を、定期的に紹介します！'
             + '<br/>よろしければチャンネル登録を〜'
             + '<br/><a href="https://www.youtube.com/channel/UCaIZDgiTHnG-QZBzsyer-CA" target="_blank">https://www.youtube.com/channel/UCaIZDgiTHnG-QZBzsyer-CA</a>'
+    case 'procon':
+      return '「宮城県のこどもたちにものづくりの楽しさや面白さを体験してほしい！」という想いから始まったプログラミングコンテスト。'
+            + '<br/>立ち上げられたPCN仙台さんの熱いメッセージに打たれ、thinkShake製作所も実行委員としてお手伝いさせてもらっています。'
+            + '<br/>webサイト制作のほか、ワークショップも担当します。'
+            + '<br/>FOLKG LOCALWORKSさんの作られたキービジュアル＆コンセプトストーリーも素敵！'
+            + '<br/>たくさんの想いが詰まったイベントですので、身近に小中学生のお子さんがいる方は、紹介していただけると嬉しいです。'
+            + '<br/><a href="https://miyagi-procon.jp/" target="_blank">https://miyagi-procon.jp/</a>'
     default:
       return ''
   }
@@ -167,6 +176,8 @@ function closedImageSwitch(key) {
       return '/d-pro.png'
     case 'youtube':
       return '/youtube.png'
+    case 'procon':
+      return '/procon2.png'
     default:
       return '/logo.png'
   }
@@ -196,6 +207,8 @@ function openedImageSwitch(key) {
       return '/d-pro_open.png'
     case 'youtube':
       return '/youtube.gif'
+    case 'procon':
+        return '/procon_open.png'
     default:
       return '/logo.png'
   }

@@ -4,6 +4,7 @@
     p 関わったお仕事や活動の一部を公開しています。
     .works_wrapper
       //- work-card(modal_key="credentia")
+      work-card(modal_key="procon")
       work-card(modal_key="co-labo")
       work-card(modal_key="ec")
       work-card(modal_key="F2R")
