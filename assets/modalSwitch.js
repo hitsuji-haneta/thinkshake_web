@@ -19,8 +19,8 @@ export default function(key, type) {
 
 function mainTextSwitch(key) {
   switch (key) {
-    case 'credentia':
-      return 'ブロックチェーン証明書発行システム'
+    case 'lastrust':
+      return 'ブロックチェーン証明書サービス'
     case 'co-labo':
       return '実験機器シェアリングサービス'
     case 'ec':
@@ -50,8 +50,8 @@ function mainTextSwitch(key) {
 
 function subTextSwitch(key) {
   switch (key) {
-    case 'credentia':
-      return 'Credentia Blockchain Technologies 様'
+    case 'lastrust':
+      return 'LasTrust株式会社'
     case 'co-labo':
       return '株式会社Co-LABO MAKER 様'
     case 'ec':
@@ -79,11 +79,11 @@ function subTextSwitch(key) {
 
 function contentTextSwitch(key) {
   switch (key) {
-    case 'credentia':
-      return '株式会社Credentia Blockchain Technologies様はブロックチェーン証明書の発行サービスを運営しているスタートアップです。'
-            + '<br/>アメリカ、タイ、日本の３カ国に拠点があり、創業間もないながらもスピード感を持ってグローバルなビジネスを展開しています。'
-            + '<br/>技術的にもチャレンジングなブロックチェーンという領域で、プロダクト開発を担当しています。'
-            + '<br/><a href="https://credentia.io/" target="_blank">https://credentia.io/</a>'
+    case 'lastrust':
+      return 'LasTrust株式会社はブロックチェーン証明書の発行サービスおよび証明書管理アプリを運営しているスタートアップです。CTO（最高技術責任者）として共同創業しました。'
+            + '<br/>ブロックチェーン証明書は改ざん不可能なデジタル証明書です。また、GAFAのように事業者が情報を保持する中央集権的な仕組みではなく、P2Pという仕組みでユーザー自身がコントロールできることが特徴です。。'
+            + '<br/>学位・資格といった既存の基準はもちろん、これまではコストの都合から評価できなかった多様な能力・才能まで可視化できる世界を目指しています。'
+            + '<br/><a href="https://lastrust.io/" target="_blank">https://lastrust.io/</a>'
     case 'co-labo':
       return '株式会社Co-LABO MAKER様は実験機器・リソースのシェアリングサービスを運営しているスタートアップです。'
             + '<br/>創業初期から参加させていただき、開発責任者としてプロダクト開発・プロジェクトマネジメント・経営戦略などの業務を担当しました。'
@@ -154,8 +154,8 @@ function contentTextSwitch(key) {
 
 function closedImageSwitch(key) {
   switch (key) {
-    case 'credentia':
-      return '/credentia.png'
+    case 'lastruest':
+      return '/lastrust.png'
     case 'co-labo':
       return '/co-labo.png'
     case 'ec':
@@ -185,8 +185,8 @@ function closedImageSwitch(key) {
 
 function openedImageSwitch(key) {
   switch (key) {
-    case 'credentia':
-      return '/credentia.gif'
+    case 'lastruest':
+      return '/lastruest.png'
     case 'co-labo':
       return '/co-labo.gif'
     case 'ec':
