@@ -81,8 +81,8 @@ function contentTextSwitch(key) {
   switch (key) {
     case 'lastrust':
       return 'LasTrust株式会社はブロックチェーン証明書の発行サービスおよび証明書管理アプリを運営しているスタートアップです。CTO（最高技術責任者）として共同創業しました。'
-            + '<br/>ブロックチェーン証明書は改ざん不可能なデジタル証明書です。また、GAFAのように事業者が情報を保持する中央集権的な仕組みではなく、P2Pという仕組みでユーザー自身がコントロールできることが特徴です。。'
-            + '<br/>学位・資格といった既存の基準はもちろん、これまではコストの都合から評価できなかった多様な能力・才能まで可視化できる世界を目指しています。'
+            + '<br/>ブロックチェーン証明書は改ざん不可能なデジタル証明書です。また、従来のように事業者が情報を保持する仕組みではなく、P2Pという仕組みでユーザー自身がコントロールできます。'
+            + '<br/>学位・資格といった既存の証明はもちろん、これまではコストの都合から評価できなかった多様な能力・才能を可視化できる世界を目指しています。'
             + '<br/><a href="https://lastrust.io/" target="_blank">https://lastrust.io/</a>'
     case 'co-labo':
       return '株式会社Co-LABO MAKER様は実験機器・リソースのシェアリングサービスを運営しているスタートアップです。'
@@ -154,8 +154,8 @@ function contentTextSwitch(key) {
 
 function closedImageSwitch(key) {
   switch (key) {
-    case 'lastruest':
-      return '/lastrust.png'
+    case 'lastrust':
+      return '/lastrust_small.jpg'
     case 'co-labo':
       return '/co-labo.png'
     case 'ec':
@@ -185,8 +185,8 @@ function closedImageSwitch(key) {
 
 function openedImageSwitch(key) {
   switch (key) {
-    case 'lastruest':
-      return '/lastruest.png'
+    case 'lastrust':
+      return '/lastrust.png'
     case 'co-labo':
       return '/co-labo.gif'
     case 'ec':
